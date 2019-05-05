@@ -4,7 +4,7 @@
   color: #828282;
 }
 
-.contributors--list {
+.contributors .contributors--list {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -15,16 +15,16 @@
   margin-bottom: -10px;
 }
 
-.contributors--list li {
+.contributors .contributors--list li {
   margin: 0;
   padding-bottom: 10px;
 }
 
-.contributors--list li:not(:last-of-type) {
+.contributors .contributors--list li:not(:last-of-type) {
   padding-right: 10px;
 }
 
-.contributors--list li img {
+.contributors .contributors--list li img {
   display: block;
   border-radius: 3px;
 }

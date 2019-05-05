@@ -1,5 +1,11 @@
 {% extends "base.html" %}
 
+{% block site_meta %}
+    {{ super() }}
+
+    <meta property="og:image" content="{{ config.site_url + 'ogLogo.png' }}" />
+{% endblock %}
+
 {% block styles %}
     {{ super() }}
 
@@ -103,7 +109,7 @@
 
                     var url = '{{ config.repo_url }}commits/master/' + fpath + '?author=' + author.login;
 
-                    $('.contributors--list').append('<li><a title="' + author.login + '" href="' + url + '" target="_blank"><img src="' + author.avatar_url + '" /></a></li>');
+                    $('.contributors--list').append('<li><a title="' + author.login + '" href="' + url + '" target="_blank"><img src="' + author.avatar_url + '&s=40" /></a></li>');
                 }
 
                 $('.contributors--count').html(already.length);
