@@ -4,6 +4,9 @@ site_url: 'https://book.ounity.ru'
 repo_name: ounity/book
 repo_url: 'https://github.com/ounity/book'
 
+nav:
+    - Об учебнике: index.md
+
 theme:
     name: material
     custom_dir: theme
