@@ -1,0 +1,52 @@
+site_name: О Unity
+site_url: 'https://book.ounity.ru'
+
+repo_name: ounity/book
+repo_url: 'https://github.com/ounity/book'
+
+theme:
+    name: material
+    custom_dir: theme
+
+    language: 'ru'
+
+    palette:
+        primary: white
+        accent: blue
+
+    logo: 'logo.svg'
+    favicon: 'favicon.png'
+
+markdown_extensions:
+    - admonition
+    - codehilite
+    - footnotes
+    - meta
+    - attr_list
+    - toc:
+        permalink: '#'
+        slugify: !!python/name:pymdownx.slugs.uslugify
+    - pymdownx.superfences
+    - pymdownx.details
+    - pymdownx.tilde
+
+google_analytics:
+    - 'UA-139581561-1'
+    - 'auto'
+
+extra:
+    search:
+        language: 'ru, en'
+
+    nav_links:
+        - title: 'Задать вопрос'
+          icon: 'far fa-question-circle'
+          url: 'https://ounity.ru'
+        
+        - title: 'Форум'
+          icon: 'far fa-comments'
+          url: 'https://ounity.ru'
+
+        - title: 'GitHub'
+          icon: 'fab fa-github'
+          url: 'https://github.com/ounity/book'

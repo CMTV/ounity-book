@@ -1,0 +1,118 @@
+{% extends "base.html" %}
+
+{% block styles %}
+    {{ super() }}
+
+    <!-- Font Awesome 5 -->
+    <link rel="stylesheet" 
+          href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" 
+          integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" 
+          crossorigin="anonymous">
+
+    <!-- Contributors -->
+    <link rel="stylesheet" href="{{ 'css/contributors/contributors.css' | url }}" />
+
+    <!-- Donate -->
+    <link rel="stylesheet" href="{{ 'css/donate/donate.css' | url }}" />
+
+    <!-- Nav -->
+    <link rel="stylesheet" href="{{ 'css/nav/nav.css' | url }}" />
+
+    <!-- Content -->
+    <link rel="stylesheet" href="{{ 'css/content/content.css' | url }}" />
+
+    <!-- Override -->
+    <link rel="stylesheet" href="{{ 'css/override/override.css' | url }}" />
+
+    <!-- Logo -->
+    <link rel="stylesheet" href="{{ 'css/logo/logo.css' | url }}" />
+{% endblock %}
+
+{% block libs %}
+    {{ super() }}
+
+    <!-- MathJax -->
+    <link rel="stylesheet" href="{{ 'css/mathjax/mathjax.css' | url }}" />
+
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            jax: ["input/TeX", "output/HTML-CSS"],
+            text2jax: {
+                inlineMath: [ ['$', '$'], ["\\(", "\\)"] ],
+                displayMath: [ ['$$', '$$'], ["\\[", "\\]"] ],
+                processEscapes: true
+            },
+            messageStyle: "none"
+        });
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS_CHTML&locale=ru" async></script>
+
+    <!-- Magnific Popup -->
+    <link rel="stylesheet" href="{{ 'libs/magnific-popup/magnific-popup.css' | url }}" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="{{ 'libs/magnific-popup/jquery.magnific-popup.min.js' | url }}"></script>
+
+    <script>
+        $(function ()
+        {
+            $('.md-content a > img').each(function (i, elem)
+            {
+                $(this).parent().addClass('img-link');
+            });
+
+            $('.img-link').magnificPopup({type: 'image'});
+        });
+    </script>
+{% endblock %}
+
+{% block content %}
+    {{ super() }}
+
+    <!-- Contributors -->
+    <div class="contributors" style="display: none;">
+        <h2 id="contributors">Вклад внесли <span class="contributors--count">0</span></h2>
+        <ul class="contributors--list"></ul>
+    </div>
+
+    <script>
+        $(function ()
+        {
+            var editUrl = '{{ page.edit_url }}';
+            var fpath = editUrl.split('{{ config.repo_url }}edit/master/').pop();
+
+            var already = [];
+
+            fetch('https://api.github.com/repos/{{ config.repo_name }}/commits?path=' + fpath).then(function (response)
+            {
+                return response.json();
+            }).then(function (commits)
+            {
+                for (var i = 0; i < commits.length; i++)
+                {
+                    var author = commits[i].author;
+
+                    if (already.includes(author.login))
+                    {
+                        continue;
+                    }
+                    else
+                    {
+                        already.push(author.login);
+                    }
+
+                    var url = '{{ config.repo_url }}commits/master/' + fpath + '?author=' + author.login;
+
+                    $('.contributors--list').append('<li><a title="' + author.login + '" href="' + url + '" target="_blank"><img src="' + author.avatar_url + '" /></a></li>');
+                }
+
+                $('.contributors--count').html(already.length);
+
+                if (already.length > 0)
+                {
+                    $('.contributors').show();
+                }
+            });
+        });
+    </script>
+{% endblock %}
