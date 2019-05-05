@@ -3,7 +3,7 @@
 {% block site_meta %}
     {{ super() }}
 
-    <meta property="og:image" content="{{ config.site_url + 'ogLogo.png' }}" />
+    <meta property="og:image" content="{{ config.site_url + '/ogLogo.png' }}" />
 {% endblock %}
 
 {% block styles %}
@@ -32,6 +32,9 @@
 
     <!-- Logo -->
     <link rel="stylesheet" href="{{ 'css/logo/logo.css' | url }}" />
+
+    <!-- Footer -->
+    <link rel="stylesheet" href="{{ 'css/footer/footer.css' | url }}" />
 {% endblock %}
 
 {% block libs %}
