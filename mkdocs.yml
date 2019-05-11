@@ -9,8 +9,9 @@ nav:
     - UI:
         - UI Elements:
             - О UI Elements: ui/ui-elements/about/index.md
-            - Пример: ''
-            - UXML: ''
+            - Использование: ui/ui-elements/usage/index.md
+            - Структура интерфейса: ui/ui-elements/interface-structure/index.md
+            - UXML: ui/ui-elements/uxml/index.md
             - USS: ''
             - Логика: ''
 

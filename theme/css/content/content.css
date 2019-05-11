@@ -11,8 +11,28 @@
   margin: 0 auto;
 }
 
-.md-content img.img-border {
+.md-content img.border {
   border: 2px solid #ececec;
   border-radius: 3px;
+}
+
+.md-content img.w9 {
+  max-width: 90%;
+}
+
+.md-content img.w8 {
+  max-width: 80%;
+}
+
+.md-content img.w7 {
+  max-width: 70%;
+}
+
+.md-content img.w6 {
+  max-width: 60%;
+}
+
+.md-content img.w5 {
+  max-width: 50%;
 }
 /*# sourceMappingURL=content.css.map */
