@@ -14,6 +14,10 @@ nav:
             - UXML: ui/ui-elements/uxml/index.md
             - USS: ''
             - Логика: ''
+    - Пакетная система:
+        - Собственный пакет:
+            - Создание пакета: packages/custom/creation/index.md
+            - Название пакета: packages/custom/naming/index.md
 
 theme:
     name: material
