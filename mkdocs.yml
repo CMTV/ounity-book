@@ -18,6 +18,12 @@ nav:
         - Собственный пакет:
             - Создание пакета: packages/custom/creation/index.md
             - Название пакета: packages/custom/naming/index.md
+    - Примеры:
+        - Локализация:
+            - О примере: examples/localisation/about/index.md
+            - Пакет: examples/localisation/package/index.md
+            - Язык: examples/localisation/language/index.md
+            - Инспектор языка: examples/localisation/language-inspector/index.md
 
 theme:
     name: material
