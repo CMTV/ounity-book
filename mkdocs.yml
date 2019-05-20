@@ -23,7 +23,13 @@ nav:
             - О примере: examples/localisation/about/index.md
             - Пакет: examples/localisation/package/index.md
             - Язык: examples/localisation/language/index.md
+            - Доступ к языку: examples/localisation/language-access/index.md
             - Инспектор языка: examples/localisation/language-inspector/index.md
+            - Редактор языка. Основа: examples/localisation/language-editor/basics/index.md
+            - Редактор языка. Фразы: examples/localisation/language-editor/phrases/index.md
+            - Редактор языка. Конец: examples/localisation/language-editor/ending/index.md
+            - Использование языка: examples/localisation/usage/index.md
+            - Текстовый компонент: examples/localisation/text-component/index.md
 
 theme:
     name: material
