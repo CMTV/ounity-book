@@ -389,22 +389,20 @@ void SaveCurrent()
 
 void LoadCurrent()
 {
-    if (!File.Exists(Application.persistentDataPath + "/lang.data"))
+    if (File.Exists(Application.persistentDataPath + "/lang.data"))
     {
-        return;
-    }
+        BinaryFormatter bf = new BinaryFormatter();
 
-    BinaryFormatter bf = new BinaryFormatter();
-
-    using (FileStream file = File.Open(Application.persistentDataPath + "/lang.data", FileMode.Open))
-    {
-        while (file.Position < file.Length)
+        using (FileStream file = File.Open(Application.persistentDataPath + "/lang.data", FileMode.Open))
         {
-            try
+            while (file.Position < file.Length)
             {
-                currentLangCode = (string)bf.Deserialize(file);
+                try
+                {
+                    currentLangCode = (string)bf.Deserialize(file);
+                }
+                catch { }
             }
-            catch { }
         }
     }
 

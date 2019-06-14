@@ -18,6 +18,7 @@ nav:
         - Собственный пакет:
             - Создание пакета: packages/custom/creation/index.md
             - Название пакета: packages/custom/naming/index.md
+            - Распространение пакета: packages/custom/sharing/index.md
     - Примеры:
         - Локализация:
             - О примере: examples/localisation/about/index.md
