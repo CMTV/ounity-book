@@ -1,5 +1,7 @@
 # Распространение пакета
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/PILyc9Cn7VY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 Создать пакет — полдела. Самое главное — использовать его в других своих проектах или поделиться с сообществом.
 Для этого нужно уметь **распространять** пакет.
 
