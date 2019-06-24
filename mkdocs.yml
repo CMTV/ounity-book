@@ -6,6 +6,8 @@ repo_url: 'https://github.com/ounity/book'
 
 nav:
     - Об учебнике: index.md
+    - Расширение редактора:
+        - Окно редактора: extend/editor-window/index.md
     - UI:
         - UI Elements:
             - О UI Elements: ui/ui-elements/about/index.md
