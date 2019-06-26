@@ -1,0 +1,1081 @@
+
+
+
+
+<!doctype html>
+<html lang="ru" class="no-js">
+  <head>
+    
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="Подробный и понятный учебник по редактору Unity. Научитесь создавать игры, разберитесь во всех тонкостях движка! Присоединяйтесь!">
+      
+      
+        <link rel="canonical" href="https://book.ounity.ru/">
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="Копировать в буфер">
+      
+        <meta name="lang:clipboard.copied" content="Скопировано в буфер">
+      
+        <meta name="lang:search.language" content="ru, en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="Совпадений не найдено">
+      
+        <meta name="lang:search.result.one" content="Найдено 1 совпадение">
+      
+        <meta name="lang:search.result.other" content="Найдено # совпадений">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.4.0">
+    
+
+    <meta property="og:image" content="https://book.ounity.ru/ogLogo.png" />
+
+    
+      
+        <title>О Unity</title>
+      
+    
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/application.0284f74d.css">
+      
+        <link rel="stylesheet" href="assets/stylesheets/application-palette.01803549.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="">
+      
+    
+
+    <!-- Font Awesome 5 -->
+    <link rel="stylesheet" 
+          href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" 
+          integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" 
+          crossorigin="anonymous">
+
+    <!-- Contributors -->
+    <link rel="stylesheet" href="css/contributors/contributors.css" />
+
+    <!-- Donate -->
+    <link rel="stylesheet" href="css/donate/donate.css" />
+
+    <!-- Nav -->
+    <link rel="stylesheet" href="css/nav/nav.css" />
+
+    <!-- Content -->
+    <link rel="stylesheet" href="css/content/content.css" />
+
+    <!-- Override -->
+    <link rel="stylesheet" href="css/override/override.css" />
+
+    <!-- Logo -->
+    <link rel="stylesheet" href="css/logo/logo.css" />
+
+    <!-- Footer -->
+    <link rel="stylesheet" href="css/footer/footer.css" />
+
+    
+    
+      <script src="assets/javascripts/modernizr.74668098.js"></script>
+    
+
+    <!-- MathJax -->
+    <link rel="stylesheet" href="css/mathjax/mathjax.css" />
+
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            jax: ["input/TeX", "output/HTML-CSS"],
+            text2jax: {
+                inlineMath: [ ['$', '$'], ["\\(", "\\)"] ],
+                displayMath: [ ['$$', '$$'], ["\\[", "\\]"] ],
+                processEscapes: true
+            },
+            messageStyle: "none"
+        });
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS_CHTML&locale=ru" async></script>
+
+    <!-- Magnific Popup -->
+    <link rel="stylesheet" href="libs/magnific-popup/magnific-popup.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="libs/magnific-popup/jquery.magnific-popup.min.js"></script>
+
+    <script>
+        $(function ()
+        {
+            $('.md-content a > img').each(function (i, elem)
+            {
+                $(this).parent().addClass('img-link');
+            });
+
+            $('.img-link').magnificPopup({type: 'image'});
+        });
+    </script>
+
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="assets/fonts/material-icons.css">
+    
+    
+    
+      
+        
+<script>
+  window.ga = window.ga || function() {
+    (ga.q = ga.q || []).push(arguments)
+  }
+  ga.l = +new Date
+  /* Setup integration and send page view */
+  ga("create", "UA-139581561-1", "auto")
+  ga("set", "anonymizeIp", true)
+  ga("send", "pageview")
+  /* Register handler to log search on blur */
+  document.addEventListener("DOMContentLoaded", () => {
+    if (document.forms.search) {
+      var query = document.forms.search.query
+      query.addEventListener("blur", function() {
+        if (this.value) {
+          var path = document.location.pathname;
+          ga("send", "pageview", path + "?q=" + this.value)
+        }
+      })
+    }
+  })
+</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="white" data-md-color-accent="blue">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#учебник-по-unity" tabindex="1" class="md-skip">
+        Перейти к содержанию
+      </a>
+    
+    
+      <!-- Application header -->
+<header class="md-header" data-md-component="header">
+
+    <!-- Top-level navigation -->
+    <nav class="md-header-nav md-grid">
+        <div class="md-flex">
+
+            <!-- Link to home -->
+            <div class="md-flex__cell md-flex__cell--shrink">
+
+                <a href="https://book.ounity.ru"
+                   title="О Unity"
+                   class="md-header-nav__button md-logo">
+                    <svg class="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 211.15 212">
+                        <g class="logo--circle">
+                            <path class="circle-part--right"
+                                d="M189,41.2l-13.6,13.6a86.79,86.79,0,0,1,0,102.4L189,170.8a106,106,0,0,0,0-129.6Z" />
+                            <path class="circle-part--bottom-left"
+                                d="M156.35,176.29A86.95,86.95,0,0,1,19.2,119.5H0a106,106,0,0,0,169.94,70.39Z" />
+                            <path class="circle-part--top-left"
+                                d="M19.2,92.5A86.95,86.95,0,0,1,156.35,35.71l13.59-13.6A106,106,0,0,0,0,92.5Z" />
+                        </g>
+                    
+                        <path class="logo--letter"
+                            d="M140.15,62.77V118a31.83,31.83,0,0,1-4.23,16.57,27.48,27.48,0,0,1-12.22,10.9,43.69,43.69,0,0,1-18.9,3.8q-16.45,0-25.55-8.43t-9.1-23.07v-55h18V115q0,9.87,4,14.47t13.12,4.61c5.92,0,10.2-1.55,12.87-4.64s4-7.94,4-14.55V62.77Z" />
+                    </svg>
+                </a>
+            </div>
+
+            <!-- Button to toggle drawer -->
+            <div class="md-flex__cell md-flex__cell--shrink">
+                <label class="md-icon md-icon--menu md-header-nav__button"
+                       for="__drawer"></label>
+            </div>
+
+            <!-- Header title -->
+            <div class="md-flex__cell md-flex__cell--stretch">
+                <div class="md-flex__ellipsis md-header-nav__title"
+                     data-md-component="title">
+                    
+                    <span class="md-header-nav__topic">
+              О Unity
+            </span>
+                    <span class="md-header-nav__topic">
+              Об учебнике
+            </span>
+                    
+                </div>
+            </div>
+
+            <!-- Button to open search dialogue -->
+            <div class="md-flex__cell md-flex__cell--shrink">
+                
+                <label class="md-icon md-icon--search md-header-nav__button"
+                       for="__search"></label>
+
+                <!-- Search interface -->
+                
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Поиск" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Начните печатать для поиска
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+                
+            </div>
+
+            <div class="md-flex__cell md-flex__cell--shrink">
+                <a href="https://www.patreon.com/mathit" target="_blank" class="donate-button">
+    <i class="fas fa-hand-holding-usd"></i>
+    <span>Поддержать!</span>
+</a>
+            </div>
+        </div>
+    </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <!-- Main navigation -->
+<nav class="md-nav md-nav--primary" data-md-level="0">
+
+    <!-- Site title -->
+    <label class="md-nav__title md-nav__title--site" for="__drawer">
+        <a href="https://book.ounity.ru"
+           title="О Unity" class="md-nav__button md-logo">
+            <svg class="logo logo--nav" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 211.15 212">
+                <g class="logo--circle">
+                    <path class="circle-part--right"
+                        d="M189,41.2l-13.6,13.6a86.79,86.79,0,0,1,0,102.4L189,170.8a106,106,0,0,0,0-129.6Z" />
+                    <path class="circle-part--bottom-left"
+                        d="M156.35,176.29A86.95,86.95,0,0,1,19.2,119.5H0a106,106,0,0,0,169.94,70.39Z" />
+                    <path class="circle-part--top-left"
+                        d="M19.2,92.5A86.95,86.95,0,0,1,156.35,35.71l13.59-13.6A106,106,0,0,0,0,92.5Z" />
+                </g>
+            
+                <path class="logo--letter"
+                    d="M140.15,62.77V118a31.83,31.83,0,0,1-4.23,16.57,27.48,27.48,0,0,1-12.22,10.9,43.69,43.69,0,0,1-18.9,3.8q-16.45,0-25.55-8.43t-9.1-23.07v-55h18V115q0,9.87,4,14.47t13.12,4.61c5.92,0,10.2-1.55,12.87-4.64s4-7.94,4-14.55V62.77Z" />
+            </svg>
+        </a>
+        <span class="site-name">О Unity</span>
+    </label>
+
+    <!-- Donate button -->
+    <div class="md-nav__donate">
+        <a href="https://www.patreon.com/mathit" target="_blank" class="donate-button">
+    <i class="fas fa-hand-holding-usd"></i>
+    <span>Поддержать!</span>
+</a>
+    </div>
+
+    <ul class="md-nav__list nav-links">
+        
+        <li class="md-nav__item">
+            <a href="https://ounity.ru" target="_blank" title="Задать вопрос"
+               class="md-nav__link">
+                <i class="far fa-question-circle"></i>
+                Задать вопрос
+            </a>
+        </li>
+        
+        <li class="md-nav__item">
+            <a href="https://ounity.ru" target="_blank" title="Форум"
+               class="md-nav__link">
+                <i class="far fa-comments"></i>
+                Форум
+            </a>
+        </li>
+        
+        <li class="md-nav__item">
+            <a href="https://github.com/ounity/book" target="_blank" title="GitHub"
+               class="md-nav__link">
+                <i class="fab fa-github"></i>
+                GitHub
+            </a>
+        </li>
+        
+    </ul>
+
+    <!-- Render item list -->
+    <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+        
+        
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Об учебнике
+      </label>
+    
+    <a href="." title="Об учебнике" class="md-nav__link md-nav__link--active">
+      Об учебнике
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Содержание</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#у-меня-вопроспроблема" title="У меня вопрос/проблема!" class="md-nav__link">
+    У меня вопрос/проблема!
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#как-поделиться-с-другом" title="Как поделиться с другом?" class="md-nav__link">
+    Как поделиться с другом?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#вклад-в-учебник" title="Вклад в учебник" class="md-nav__link">
+    Вклад в учебник
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#о-учебнике" title="О учебнике" class="md-nav__link">
+    О учебнике
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+        
+        
+        
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Расширение редактора
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Расширение редактора
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="extend/editor-window/" title="Окно редактора" class="md-nav__link">
+      Окно редактора
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+        
+        
+        
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      UI
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        UI
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-1" type="checkbox" id="nav-3-1">
+    
+    <label class="md-nav__link" for="nav-3-1">
+      UI Elements
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-1">
+        UI Elements
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="ui/ui-elements/about/" title="О UI Elements" class="md-nav__link">
+      О UI Elements
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="ui/ui-elements/usage/" title="Использование" class="md-nav__link">
+      Использование
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="ui/ui-elements/interface-structure/" title="Структура интерфейса" class="md-nav__link">
+      Структура интерфейса
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="ui/ui-elements/uxml/" title="UXML" class="md-nav__link">
+      UXML
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="." title="USS" class="md-nav__link">
+      USS
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="." title="Логика" class="md-nav__link">
+      Логика
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+        
+        
+        
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Пакетная система
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        Пакетная система
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-1" type="checkbox" id="nav-4-1">
+    
+    <label class="md-nav__link" for="nav-4-1">
+      Собственный пакет
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-4-1">
+        Собственный пакет
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="packages/custom/creation/" title="Создание пакета" class="md-nav__link">
+      Создание пакета
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="packages/custom/naming/" title="Название пакета" class="md-nav__link">
+      Название пакета
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="packages/custom/sharing/" title="Распространение пакета" class="md-nav__link">
+      Распространение пакета
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="packages/custom/package-json/" title="Манифест пакета" class="md-nav__link">
+      Манифест пакета
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+        
+        
+        
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      Примеры
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        Примеры
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-1" type="checkbox" id="nav-5-1">
+    
+    <label class="md-nav__link" for="nav-5-1">
+      Локализация
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-5-1">
+        Локализация
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="examples/localisation/about/" title="О примере" class="md-nav__link">
+      О примере
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="examples/localisation/package/" title="Пакет" class="md-nav__link">
+      Пакет
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="examples/localisation/language/" title="Язык" class="md-nav__link">
+      Язык
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="examples/localisation/language-access/" title="Доступ к языку" class="md-nav__link">
+      Доступ к языку
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="examples/localisation/language-inspector/" title="Инспектор языка" class="md-nav__link">
+      Инспектор языка
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="examples/localisation/language-editor/basics/" title="Редактор языка. Основа" class="md-nav__link">
+      Редактор языка. Основа
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="examples/localisation/language-editor/phrases/" title="Редактор языка. Фразы" class="md-nav__link">
+      Редактор языка. Фразы
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="examples/localisation/language-editor/ending/" title="Редактор языка. Конец" class="md-nav__link">
+      Редактор языка. Конец
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="examples/localisation/usage/" title="Использование языка" class="md-nav__link">
+      Использование языка
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="examples/localisation/text-component/" title="Текстовый компонент" class="md-nav__link">
+      Текстовый компонент
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+    </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Содержание</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#у-меня-вопроспроблема" title="У меня вопрос/проблема!" class="md-nav__link">
+    У меня вопрос/проблема!
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#как-поделиться-с-другом" title="Как поделиться с другом?" class="md-nav__link">
+    Как поделиться с другом?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#вклад-в-учебник" title="Вклад в учебник" class="md-nav__link">
+    Вклад в учебник
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#о-учебнике" title="О учебнике" class="md-nav__link">
+    О учебнике
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+    
+                
+                  <a href="https://github.com/ounity/book/edit/master/docs/index.md" title="Редактировать страницу" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                <h1 id="учебник-по-unity">Учебник по Unity<a class="headerlink" href="#учебник-по-unity" title="Permanent link">#</a></h1>
+<p>Хотите создать игру? Не получается реализовать какую-то механику? Трудности с Unity?</p>
+<p>Вы по адресу! Добро пожаловать в интересный, понятный и подробный учебник по редактору Unity!</p>
+<h2 id="у-меня-вопроспроблема">У меня вопрос/проблема!<a class="headerlink" href="#у-меня-вопроспроблема" title="Permanent link">#</a></h2>
+<p>Если что-то не работает, но должно, или (что еще хуже), что-то работает, но не должно, смело обращайтесь на <a href="https://ounity.ru">форум</a> за помощью.</p>
+<p>Кстати, там можно не только просить о помощи, но еще и общаться с другими создателями игр, обмениваться опытом и рекламировать свои игры!</p>
+<h2 id="как-поделиться-с-другом">Как поделиться с другом?<a class="headerlink" href="#как-поделиться-с-другом" title="Permanent link">#</a></h2>
+<p>Вы можете просто скинуть ссылку на статью. Однако, статьи на данном сайте порой достигают внушительных размеров. В таком случае, можно поделиться ссылкой на конкретный раздел статьи.</p>
+<p>Разделы статьи разделяются заголовками. Наведите на заголовок курсор мышки. Справа от него появится значок ссылки. Нажмите на него правой кнопкой и выберите пункт "Копировать адрес ссылки".</p>
+<p><a href="index/images/share.png"><img alt="Демонстрация копирования ссылки" class="w8 border" src="index/images/share.png" /></a></p>
+<h2 id="вклад-в-учебник">Вклад в учебник<a class="headerlink" href="#вклад-в-учебник" title="Permanent link">#</a></h2>
+<p>Вы можете <strong>вносить правки</strong> в существующие статьи, <strong>добавлять свои</strong> собственные, а также <strong>предлагать</strong> идеи для новых статей. Сделать это очень просто. Откройте pull request через GitHub со своими правками. Мы рассмотрим их и добавим в учебник!</p>
+<h2 id="о-учебнике">О учебнике<a class="headerlink" href="#о-учебнике" title="Permanent link">#</a></h2>
+<p>На просторах интернета мало информации по Unity на русском языке. Официальная документация переведена лишь местами. Получается, что нет единого источника информации, который поддерживается <strong>сообществом</strong>, а не <strong>единственным автором</strong>.</p>
+<p>Здесь мы реализуем другой подход.</p>
+<p>Сайт является работает на статическом генераторе <a href="https://www.mkdocs.org/">MkDocs</a> с темой <a href="https://squidfunk.github.io/mkdocs-material/">Material</a>. Такой подход позволяет не возиться с исходниками сайта, а писать статьи в удобной markdown разметке, которая автоматически собирается в готовый и красивый сайт.</p>
+                
+                  
+                
+              
+
+    <!-- Contributors -->
+    <div class="contributors" style="display: none;">
+        <h2 id="contributors">Вклад внесли <span class="contributors--count">0</span></h2>
+        <ul class="contributors--list"></ul>
+    </div>
+
+    <script>
+        $(function ()
+        {
+            var editUrl = 'https://github.com/ounity/book/edit/master/docs/index.md';
+            var fpath = editUrl.split('https://github.com/ounity/book/edit/master/').pop();
+
+            var already = [];
+
+            fetch('https://api.github.com/repos/ounity/book/commits?path=' + fpath).then(function (response)
+            {
+                return response.json();
+            }).then(function (commits)
+            {
+                for (var i = 0; i < commits.length; i++)
+                {
+                    var author = commits[i].author;
+
+                    if (already.includes(author.login))
+                    {
+                        continue;
+                    }
+                    else
+                    {
+                        already.push(author.login);
+                    }
+
+                    var url = 'https://github.com/ounity/book/commits/master/' + fpath + '?author=' + author.login;
+
+                    $('.contributors--list').append('<li><a title="' + author.login + '" href="' + url + '" target="_blank"><img src="' + author.avatar_url + '&s=40" /></a></li>');
+                }
+
+                $('.contributors--count').html(already.length);
+
+                if (already.length > 0)
+                {
+                    $('.contributors').show();
+                }
+            });
+        });
+    </script>
+
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+
+<!-- Application footer -->
+<footer class="md-footer">
+
+    <!-- Link to previous and/or next page -->
+    
+    <div class="md-footer-nav">
+        <nav class="md-footer-nav__inner md-grid">
+
+            <!-- Link to previous page -->
+            
+
+            <!-- Link to next page -->
+            
+            <a href="extend/editor-window/" title="Окно редактора"
+                class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+                <div class="md-flex__cell md-flex__cell--stretch
+                  md-footer-nav__title">
+                    <span class="md-flex__ellipsis">
+                        <span class="md-footer-nav__direction">
+                            Вперед
+                        </span>
+                        Окно редактора
+                    </span>
+                </div>
+                <div class="md-flex__cell md-flex__cell--shrink">
+                    <i class="md-icon md-icon--arrow-forward
+                    md-footer-nav__button"></i>
+                </div>
+            </a>
+            
+        </nav>
+    </div>
+    
+</footer>
+
+<!-- Counters -->
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function (m, e, t, r, i, k, a) {
+    m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments) };
+        m[i].l = 1 * new Date(); k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+    })
+        (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+    ym(53540761, "init", {
+        clickmap: true,
+        trackLinks: true,
+        accurateTrackBounce: true
+    });
+</script>
+<noscript>
+    <div><img src="https://mc.yandex.ru/watch/53540761" style="position:absolute; left:-9999px;" alt="" /></div>
+</noscript>
+<!-- /Yandex.Metrika counter -->
+      
+    </div>
+    
+      <script src="assets/javascripts/application.245445c6.js"></script>
+      
+        
+        
+          
+          <script src="assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+              
+              
+                <script src="assets/javascripts/lunr/lunr.ru.js"></script>
+              
+            
+          
+            
+          
+          
+            <script src="assets/javascripts/lunr/lunr.multi.js"></script>
+          
+        
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"."}})</script>
+      
+    
+  </body>
+</html>

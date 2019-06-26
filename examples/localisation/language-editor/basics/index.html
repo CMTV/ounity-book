@@ -1,0 +1,1629 @@
+
+
+
+
+<!doctype html>
+<html lang="ru" class="no-js">
+  <head>
+    
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+        <link rel="canonical" href="https://book.ounity.ru/examples/localisation/language-editor/basics/">
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="Копировать в буфер">
+      
+        <meta name="lang:clipboard.copied" content="Скопировано в буфер">
+      
+        <meta name="lang:search.language" content="ru, en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="Совпадений не найдено">
+      
+        <meta name="lang:search.result.one" content="Найдено 1 совпадение">
+      
+        <meta name="lang:search.result.other" content="Найдено # совпадений">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../../../favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.4.0">
+    
+
+    <meta property="og:image" content="https://book.ounity.ru/ogLogo.png" />
+
+    
+      
+        <title>Редактор языка. Основа - О Unity</title>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/application.0284f74d.css">
+      
+        <link rel="stylesheet" href="../../../../assets/stylesheets/application-palette.01803549.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="">
+      
+    
+
+    <!-- Font Awesome 5 -->
+    <link rel="stylesheet" 
+          href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" 
+          integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" 
+          crossorigin="anonymous">
+
+    <!-- Contributors -->
+    <link rel="stylesheet" href="../../../../css/contributors/contributors.css" />
+
+    <!-- Donate -->
+    <link rel="stylesheet" href="../../../../css/donate/donate.css" />
+
+    <!-- Nav -->
+    <link rel="stylesheet" href="../../../../css/nav/nav.css" />
+
+    <!-- Content -->
+    <link rel="stylesheet" href="../../../../css/content/content.css" />
+
+    <!-- Override -->
+    <link rel="stylesheet" href="../../../../css/override/override.css" />
+
+    <!-- Logo -->
+    <link rel="stylesheet" href="../../../../css/logo/logo.css" />
+
+    <!-- Footer -->
+    <link rel="stylesheet" href="../../../../css/footer/footer.css" />
+
+    
+    
+      <script src="../../../../assets/javascripts/modernizr.74668098.js"></script>
+    
+
+    <!-- MathJax -->
+    <link rel="stylesheet" href="../../../../css/mathjax/mathjax.css" />
+
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            jax: ["input/TeX", "output/HTML-CSS"],
+            text2jax: {
+                inlineMath: [ ['$', '$'], ["\\(", "\\)"] ],
+                displayMath: [ ['$$', '$$'], ["\\[", "\\]"] ],
+                processEscapes: true
+            },
+            messageStyle: "none"
+        });
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS_CHTML&locale=ru" async></script>
+
+    <!-- Magnific Popup -->
+    <link rel="stylesheet" href="../../../../libs/magnific-popup/magnific-popup.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="../../../../libs/magnific-popup/jquery.magnific-popup.min.js"></script>
+
+    <script>
+        $(function ()
+        {
+            $('.md-content a > img').each(function (i, elem)
+            {
+                $(this).parent().addClass('img-link');
+            });
+
+            $('.img-link').magnificPopup({type: 'image'});
+        });
+    </script>
+
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../../../assets/fonts/material-icons.css">
+    
+    
+    
+      
+        
+<script>
+  window.ga = window.ga || function() {
+    (ga.q = ga.q || []).push(arguments)
+  }
+  ga.l = +new Date
+  /* Setup integration and send page view */
+  ga("create", "UA-139581561-1", "auto")
+  ga("set", "anonymizeIp", true)
+  ga("send", "pageview")
+  /* Register handler to log search on blur */
+  document.addEventListener("DOMContentLoaded", () => {
+    if (document.forms.search) {
+      var query = document.forms.search.query
+      query.addEventListener("blur", function() {
+        if (this.value) {
+          var path = document.location.pathname;
+          ga("send", "pageview", path + "?q=" + this.value)
+        }
+      })
+    }
+  })
+</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="white" data-md-color-accent="blue">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#редактор-языка-основа" tabindex="1" class="md-skip">
+        Перейти к содержанию
+      </a>
+    
+    
+      <!-- Application header -->
+<header class="md-header" data-md-component="header">
+
+    <!-- Top-level navigation -->
+    <nav class="md-header-nav md-grid">
+        <div class="md-flex">
+
+            <!-- Link to home -->
+            <div class="md-flex__cell md-flex__cell--shrink">
+
+                <a href="https://book.ounity.ru"
+                   title="О Unity"
+                   class="md-header-nav__button md-logo">
+                    <svg class="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 211.15 212">
+                        <g class="logo--circle">
+                            <path class="circle-part--right"
+                                d="M189,41.2l-13.6,13.6a86.79,86.79,0,0,1,0,102.4L189,170.8a106,106,0,0,0,0-129.6Z" />
+                            <path class="circle-part--bottom-left"
+                                d="M156.35,176.29A86.95,86.95,0,0,1,19.2,119.5H0a106,106,0,0,0,169.94,70.39Z" />
+                            <path class="circle-part--top-left"
+                                d="M19.2,92.5A86.95,86.95,0,0,1,156.35,35.71l13.59-13.6A106,106,0,0,0,0,92.5Z" />
+                        </g>
+                    
+                        <path class="logo--letter"
+                            d="M140.15,62.77V118a31.83,31.83,0,0,1-4.23,16.57,27.48,27.48,0,0,1-12.22,10.9,43.69,43.69,0,0,1-18.9,3.8q-16.45,0-25.55-8.43t-9.1-23.07v-55h18V115q0,9.87,4,14.47t13.12,4.61c5.92,0,10.2-1.55,12.87-4.64s4-7.94,4-14.55V62.77Z" />
+                    </svg>
+                </a>
+            </div>
+
+            <!-- Button to toggle drawer -->
+            <div class="md-flex__cell md-flex__cell--shrink">
+                <label class="md-icon md-icon--menu md-header-nav__button"
+                       for="__drawer"></label>
+            </div>
+
+            <!-- Header title -->
+            <div class="md-flex__cell md-flex__cell--stretch">
+                <div class="md-flex__ellipsis md-header-nav__title"
+                     data-md-component="title">
+                    
+                    <span class="md-header-nav__topic">
+              О Unity
+            </span>
+                    <span class="md-header-nav__topic">
+              Редактор языка. Основа
+            </span>
+                    
+                </div>
+            </div>
+
+            <!-- Button to open search dialogue -->
+            <div class="md-flex__cell md-flex__cell--shrink">
+                
+                <label class="md-icon md-icon--search md-header-nav__button"
+                       for="__search"></label>
+
+                <!-- Search interface -->
+                
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Поиск" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Начните печатать для поиска
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+                
+            </div>
+
+            <div class="md-flex__cell md-flex__cell--shrink">
+                <a href="https://www.patreon.com/mathit" target="_blank" class="donate-button">
+    <i class="fas fa-hand-holding-usd"></i>
+    <span>Поддержать!</span>
+</a>
+            </div>
+        </div>
+    </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <!-- Main navigation -->
+<nav class="md-nav md-nav--primary" data-md-level="0">
+
+    <!-- Site title -->
+    <label class="md-nav__title md-nav__title--site" for="__drawer">
+        <a href="https://book.ounity.ru"
+           title="О Unity" class="md-nav__button md-logo">
+            <svg class="logo logo--nav" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 211.15 212">
+                <g class="logo--circle">
+                    <path class="circle-part--right"
+                        d="M189,41.2l-13.6,13.6a86.79,86.79,0,0,1,0,102.4L189,170.8a106,106,0,0,0,0-129.6Z" />
+                    <path class="circle-part--bottom-left"
+                        d="M156.35,176.29A86.95,86.95,0,0,1,19.2,119.5H0a106,106,0,0,0,169.94,70.39Z" />
+                    <path class="circle-part--top-left"
+                        d="M19.2,92.5A86.95,86.95,0,0,1,156.35,35.71l13.59-13.6A106,106,0,0,0,0,92.5Z" />
+                </g>
+            
+                <path class="logo--letter"
+                    d="M140.15,62.77V118a31.83,31.83,0,0,1-4.23,16.57,27.48,27.48,0,0,1-12.22,10.9,43.69,43.69,0,0,1-18.9,3.8q-16.45,0-25.55-8.43t-9.1-23.07v-55h18V115q0,9.87,4,14.47t13.12,4.61c5.92,0,10.2-1.55,12.87-4.64s4-7.94,4-14.55V62.77Z" />
+            </svg>
+        </a>
+        <span class="site-name">О Unity</span>
+    </label>
+
+    <!-- Donate button -->
+    <div class="md-nav__donate">
+        <a href="https://www.patreon.com/mathit" target="_blank" class="donate-button">
+    <i class="fas fa-hand-holding-usd"></i>
+    <span>Поддержать!</span>
+</a>
+    </div>
+
+    <ul class="md-nav__list nav-links">
+        
+        <li class="md-nav__item">
+            <a href="https://ounity.ru" target="_blank" title="Задать вопрос"
+               class="md-nav__link">
+                <i class="far fa-question-circle"></i>
+                Задать вопрос
+            </a>
+        </li>
+        
+        <li class="md-nav__item">
+            <a href="https://ounity.ru" target="_blank" title="Форум"
+               class="md-nav__link">
+                <i class="far fa-comments"></i>
+                Форум
+            </a>
+        </li>
+        
+        <li class="md-nav__item">
+            <a href="https://github.com/ounity/book" target="_blank" title="GitHub"
+               class="md-nav__link">
+                <i class="fab fa-github"></i>
+                GitHub
+            </a>
+        </li>
+        
+    </ul>
+
+    <!-- Render item list -->
+    <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+        
+        
+
+
+  <li class="md-nav__item">
+    <a href="../../../.." title="Об учебнике" class="md-nav__link">
+      Об учебнике
+    </a>
+  </li>
+
+        
+        
+        
+        
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Расширение редактора
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Расширение редактора
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../extend/editor-window/" title="Окно редактора" class="md-nav__link">
+      Окно редактора
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+        
+        
+        
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      UI
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        UI
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-1" type="checkbox" id="nav-3-1">
+    
+    <label class="md-nav__link" for="nav-3-1">
+      UI Elements
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-1">
+        UI Elements
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../ui/ui-elements/about/" title="О UI Elements" class="md-nav__link">
+      О UI Elements
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../ui/ui-elements/usage/" title="Использование" class="md-nav__link">
+      Использование
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../ui/ui-elements/interface-structure/" title="Структура интерфейса" class="md-nav__link">
+      Структура интерфейса
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../ui/ui-elements/uxml/" title="UXML" class="md-nav__link">
+      UXML
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../.." title="USS" class="md-nav__link">
+      USS
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../.." title="Логика" class="md-nav__link">
+      Логика
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+        
+        
+        
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Пакетная система
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        Пакетная система
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-1" type="checkbox" id="nav-4-1">
+    
+    <label class="md-nav__link" for="nav-4-1">
+      Собственный пакет
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-4-1">
+        Собственный пакет
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../packages/custom/creation/" title="Создание пакета" class="md-nav__link">
+      Создание пакета
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../packages/custom/naming/" title="Название пакета" class="md-nav__link">
+      Название пакета
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../packages/custom/sharing/" title="Распространение пакета" class="md-nav__link">
+      Распространение пакета
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../packages/custom/package-json/" title="Манифест пакета" class="md-nav__link">
+      Манифест пакета
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+        
+        
+        
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" checked>
+    
+    <label class="md-nav__link" for="nav-5">
+      Примеры
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        Примеры
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-1" type="checkbox" id="nav-5-1" checked>
+    
+    <label class="md-nav__link" for="nav-5-1">
+      Локализация
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-5-1">
+        Локализация
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../about/" title="О примере" class="md-nav__link">
+      О примере
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../package/" title="Пакет" class="md-nav__link">
+      Пакет
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../language/" title="Язык" class="md-nav__link">
+      Язык
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../language-access/" title="Доступ к языку" class="md-nav__link">
+      Доступ к языку
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../language-inspector/" title="Инспектор языка" class="md-nav__link">
+      Инспектор языка
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Редактор языка. Основа
+      </label>
+    
+    <a href="./" title="Редактор языка. Основа" class="md-nav__link md-nav__link--active">
+      Редактор языка. Основа
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Содержание</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#окно" title="Окно" class="md-nav__link">
+    Окно
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#выбор-языка" title="Выбор языка" class="md-nav__link">
+    Выбор языка
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#таблица-стилей" title="Таблица стилей" class="md-nav__link">
+    Таблица стилей
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#основа-интерфейса" title="Основа интерфейса" class="md-nav__link">
+    Основа интерфейса
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#интерфейс-без-языка" title="Интерфейс без языка" class="md-nav__link">
+    Интерфейс без языка
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#шапка" title="Шапка" class="md-nav__link">
+    Шапка
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#разметка-и-стили" title="Разметка и стили" class="md-nav__link">
+    Разметка и стили
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#кнопки-действий" title="Кнопки действий" class="md-nav__link">
+    Кнопки действий
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#поиск" title="Поиск" class="md-nav__link">
+    Поиск
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#редактор-через-инспектор" title="Редактор через инспектор" class="md-nav__link">
+    Редактор через инспектор
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../phrases/" title="Редактор языка. Фразы" class="md-nav__link">
+      Редактор языка. Фразы
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ending/" title="Редактор языка. Конец" class="md-nav__link">
+      Редактор языка. Конец
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../usage/" title="Использование языка" class="md-nav__link">
+      Использование языка
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../text-component/" title="Текстовый компонент" class="md-nav__link">
+      Текстовый компонент
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+    </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Содержание</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#окно" title="Окно" class="md-nav__link">
+    Окно
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#выбор-языка" title="Выбор языка" class="md-nav__link">
+    Выбор языка
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#таблица-стилей" title="Таблица стилей" class="md-nav__link">
+    Таблица стилей
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#основа-интерфейса" title="Основа интерфейса" class="md-nav__link">
+    Основа интерфейса
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#интерфейс-без-языка" title="Интерфейс без языка" class="md-nav__link">
+    Интерфейс без языка
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#шапка" title="Шапка" class="md-nav__link">
+    Шапка
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#разметка-и-стили" title="Разметка и стили" class="md-nav__link">
+    Разметка и стили
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#кнопки-действий" title="Кнопки действий" class="md-nav__link">
+    Кнопки действий
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#поиск" title="Поиск" class="md-nav__link">
+    Поиск
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#редактор-через-инспектор" title="Редактор через инспектор" class="md-nav__link">
+    Редактор через инспектор
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+    
+                
+                  <a href="https://github.com/ounity/book/edit/master/docs/examples/localisation/language-editor/basics/index.md" title="Редактировать страницу" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                <h1 id="редактор-языка-основа">Редактор языка. Основа<a class="headerlink" href="#редактор-языка-основа" title="Permanent link">#</a></h1>
+<p>Пришло время создать ключевой элемент всего пакета — редактор языка, который будет называться "Translator". Материала так много, что создавать редактор мы будем на протяжении трех статей. В этой части мы создадим основной интерфейс редактора.</p>
+<h2 id="окно">Окно<a class="headerlink" href="#окно" title="Permanent link">#</a></h2>
+<p>В папке <code>Scripts/Editor</code> создадим класс <code>Translator</code>:</p>
+<div class="codehilite"><pre><span></span><span class="k">using</span> <span class="nn">UnityEngine</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">UnityEditor</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">UnityEngine.UIElements</span><span class="p">;</span>
+
+<span class="k">namespace</span> <span class="nn">I18n.EditorUtilities</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">class</span> <span class="nc">Translator</span> <span class="p">:</span> <span class="n">EditorWindow</span>
+    <span class="p">{</span>
+        <span class="n">Language</span> <span class="n">lang</span><span class="p">;</span>
+
+        <span class="n">VisualElement</span> <span class="n">Root</span> <span class="p">=&gt;</span> <span class="n">rootVisualElement</span><span class="p">;</span>
+
+<span class="na">        [MenuItem(&quot;Window/Translator&quot;)]</span>
+        <span class="k">public</span> <span class="k">static</span> <span class="n">Translator</span> <span class="nf">ShowWindow</span><span class="p">()</span>
+        <span class="p">{</span>
+            <span class="kt">var</span> <span class="n">window</span> <span class="p">=</span> <span class="n">GetWindow</span><span class="p">&lt;</span><span class="n">Translator</span><span class="p">&gt;();</span>
+            <span class="n">window</span><span class="p">.</span><span class="n">titleContent</span> <span class="p">=</span> <span class="k">new</span> <span class="n">GUIContent</span><span class="p">(</span><span class="s">&quot;Translator&quot;</span><span class="p">);</span>
+            <span class="n">window</span><span class="p">.</span><span class="n">minSize</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Vector2</span><span class="p">(</span><span class="m">300</span><span class="p">,</span> <span class="m">300</span><span class="p">);</span>
+            <span class="n">window</span><span class="p">.</span><span class="n">Show</span><span class="p">();</span>
+
+            <span class="k">return</span> <span class="n">window</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="k">void</span> <span class="nf">OnEnable</span><span class="p">()</span>
+        <span class="p">{</span>
+
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+<p>Это обычный код окна редактора Unity. Стоит упомянуть переменную <code>lang</code>, которая хранит язык, который в данный момент открыт в редактора, а также свойство <code>Root</code>, которое является удобным сокращением переменной <code>rootVisualElement</code>.</p>
+<div class="codehilite"><pre><span></span><span class="n">Language</span> <span class="n">lang</span><span class="p">;</span>
+
+<span class="n">VisualElement</span> <span class="n">Root</span> <span class="p">=&gt;</span> <span class="n">rootVisualElement</span><span class="p">;</span>
+</pre></div>
+
+<p>Помимо этого, установлен минимальный размер окна редактора: 300 пикселей в высоту и ширину.</p>
+<div class="codehilite"><pre><span></span><span class="n">window</span><span class="p">.</span><span class="n">minSize</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Vector2</span><span class="p">(</span><span class="m">300</span><span class="p">,</span> <span class="m">300</span><span class="p">);</span>
+</pre></div>
+
+<h2 id="выбор-языка">Выбор языка<a class="headerlink" href="#выбор-языка" title="Permanent link">#</a></h2>
+<p>Сейчас переменная <code>lang</code> нашего окна всегда равна <code>null</code>, так как мы ничего в не помещаем. Пора это исправить!</p>
+<p>Для начала создадим публичное свойство <code>Lang</code> прямо под переменной <code>lang</code> для получения и установки языка. Зачем свойство? Потому что при смене языка нам придется обновлять интерфейс редактора. И только одна из причин. О другой ниже.</p>
+<div class="codehilite"><pre><span></span><span class="k">public</span> <span class="n">Language</span> <span class="n">Lang</span>
+<span class="p">{</span>
+    <span class="k">get</span> <span class="p">=&gt;</span> <span class="n">lang</span><span class="p">;</span>
+
+    <span class="k">set</span>
+    <span class="p">{</span>
+        <span class="n">lang</span> <span class="p">=</span> <span class="k">value</span><span class="p">;</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="n">lang</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span>
+            <span class="n">EditorUtility</span><span class="p">.</span><span class="n">SetDirty</span><span class="p">(</span><span class="n">lang</span><span class="p">);</span>
+
+        <span class="n">SetupLayout</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+<p>Что за <code>SetDirty(lang)</code>? А это еще одна причина, из-за который мы создали свойство <code>Lang</code>. Этим вызовом мы говорим Unity, чтобы он действительно записывал изменения в языке. Без вызова <code>SetDirty</code> все изменения будут потеряны после перезапуска Unity.</p>
+<p>Теперь нам нужен метод, который открывает окно, в котором можно выбрать нужный язык. Назовем его <code>OpenLangPicker</code>:</p>
+<div class="codehilite"><pre><span></span><span class="k">void</span> <span class="nf">OpenLangPicker</span><span class="p">(</span><span class="n">Language</span> <span class="n">langToShow</span> <span class="p">=</span> <span class="k">null</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">EditorGUIUtility</span><span class="p">.</span><span class="n">ShowObjectPicker</span><span class="p">&lt;</span><span class="n">Language</span><span class="p">&gt;(</span><span class="n">langToShow</span><span class="p">,</span> <span class="k">false</span><span class="p">,</span> <span class="s">&quot;&quot;</span><span class="p">,</span> <span class="m">0</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+
+<p>Метод принимает необязательный аргумент <code>langToShow</code>. Если его указать, то в окне выбора указанный язык будет выделен по умолчанию.</p>
+<p>Вот так будет выглядеть окно выбора языка:</p>
+<p><a href="images/lang-picker-window.png"><img alt="Демонстрация окна выбора языка" class="w7" src="images/lang-picker-window.png" /></a></p>
+<p>Но открыть окно выбора — полдела. Нам нужно отловить момент, когда пользователь выбирает в этом окне нужный язык. Сделать это можно с помощью простой проверки в методе <code>OnGUI</code>:</p>
+<div class="codehilite"><pre><span></span><span class="k">void</span> <span class="nf">OnGUI</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">Event</span><span class="p">.</span><span class="n">current</span><span class="p">.</span><span class="n">commandName</span> <span class="p">==</span> <span class="s">&quot;ObjectSelectorUpdated&quot;</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">Lang</span> <span class="p">=</span> <span class="p">(</span><span class="n">Language</span><span class="p">)</span><span class="n">EditorGUIUtility</span><span class="p">.</span><span class="n">GetObjectPickerObject</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+<p>Поместим оба метода выше (<code>OnGUI</code> и <code>OpenLangPicker</code>) в регион кода:</p>
+<div class="codehilite"><pre><span></span><span class="cp">#region Language picker</span>
+
+<span class="k">void</span> <span class="nf">OnGUI</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">Event</span><span class="p">.</span><span class="n">current</span><span class="p">.</span><span class="n">commandName</span> <span class="p">==</span> <span class="s">&quot;ObjectSelectorUpdated&quot;</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">Lang</span> <span class="p">=</span> <span class="p">(</span><span class="n">Language</span><span class="p">)</span><span class="n">EditorGUIUtility</span><span class="p">.</span><span class="n">GetObjectPickerObject</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">void</span> <span class="nf">OpenLangPicker</span><span class="p">(</span><span class="n">Language</span> <span class="n">langToShow</span> <span class="p">=</span> <span class="k">null</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">EditorGUIUtility</span><span class="p">.</span><span class="n">ShowObjectPicker</span><span class="p">&lt;</span><span class="n">Language</span><span class="p">&gt;(</span><span class="n">langToShow</span><span class="p">,</span> <span class="k">false</span><span class="p">,</span> <span class="s">&quot;&quot;</span><span class="p">,</span> <span class="m">1</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="cp">#endregion</span>
+</pre></div>
+
+<h2 id="таблица-стилей">Таблица стилей<a class="headerlink" href="#таблица-стилей" title="Permanent link">#</a></h2>
+<p>Перед началом работы с интерфейсом давайте сразу подключим таблицу стилей. Она у нас одна.</p>
+<p>Создаем в <code>Editor Resources/uss</code> пока что пустой файл <code>Translator.uss</code>.</p>
+<p>Теперь в классе <code>Translator</code> заполним содержимое метода <code>OnEnable()</code>:</p>
+<div class="codehilite"><pre><span></span><span class="k">void</span> <span class="nf">OnEnable</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="cp">#region Loading stylesheet</span>
+
+    <span class="kt">var</span> <span class="n">styleSheet</span> <span class="p">=</span> <span class="n">AssetDatabase</span><span class="p">.</span><span class="n">LoadAssetAtPath</span><span class="p">&lt;</span><span class="n">StyleSheet</span><span class="p">&gt;(</span><span class="n">Path</span><span class="p">.</span><span class="n">USS</span><span class="p">(</span><span class="s">&quot;Translator&quot;</span><span class="p">));</span>
+    <span class="n">Root</span><span class="p">.</span><span class="n">styleSheets</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">styleSheet</span><span class="p">);</span>
+
+    <span class="cp">#endregion</span>
+<span class="p">}</span>
+</pre></div>
+
+<h2 id="основа-интерфейса">Основа интерфейса<a class="headerlink" href="#основа-интерфейса" title="Permanent link">#</a></h2>
+<p>На самом деле у нашего окна два интерфейса: когда язык не указан и когда он указан.</p>
+<p>В первом случае нужно попросить пользователя выбрать язык. Во втором — отобразить обычный интерфейс редактора языка.</p>
+<p>Создадим ряд функций, которые решают, какой интерфейс отображать:</p>
+<div class="codehilite"><pre><span></span><span class="cp">#region Layouts</span>
+
+<span class="k">void</span> <span class="nf">SetupLayout</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">ClearLayout</span><span class="p">();</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">Lang</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">SetupLangLayout</span><span class="p">();</span>
+    <span class="p">}</span>
+    <span class="k">else</span>
+    <span class="p">{</span>
+        <span class="n">SetupNoLangLayout</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">void</span> <span class="nf">SetupLangLayout</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">Root</span><span class="p">.</span><span class="n">AddToClassList</span><span class="p">(</span><span class="s">&quot;has-lang&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">void</span> <span class="nf">SetupNoLangLayout</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">Root</span><span class="p">.</span><span class="n">AddToClassList</span><span class="p">(</span><span class="s">&quot;no-lang&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">void</span> <span class="nf">ClearLayout</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">Root</span><span class="p">.</span><span class="n">Clear</span><span class="p">();</span>
+    <span class="n">Root</span><span class="p">.</span><span class="n">RemoveFromClassList</span><span class="p">(</span><span class="s">&quot;no-lang&quot;</span><span class="p">);</span>
+    <span class="n">Root</span><span class="p">.</span><span class="n">RemoveFromClassList</span><span class="p">(</span><span class="s">&quot;has-lang&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="cp">#endregion</span>
+</pre></div>
+
+<p>Метод <code>SetupLayout</code> сначала удаляет все содержимое окна (и его классы) с помощью <code>ClearLayout()</code>. Затем идет проверка. Если переменная <code>lang</code> содержит язык, то отрисовывается обычный интерфейс редактора (вызов <code>SetupLangLayout()</code>). Если переменная она пустая, отрисовываем интерфейс с просьбой указать язык для работы (вызов <code>SetupNoLangLayout()</code>).</p>
+<p>Осталось только вызывать перерисовку интерфейса в нужных местах, а именно:</p>
+<ol>
+<li>Момент открытия окна</li>
+<li>Изменение переменной <code>lang</code></li>
+</ol>
+<p>Для первого случая добавим <code>SetupLayout()</code> в конец метода <code>OnEnable()</code>, сразу после применения таблицы стилей:</p>
+<div class="codehilite"><pre><span></span><span class="k">void</span> <span class="nf">OnEnable</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="cp">#region Loading stylesheet</span>
+
+    <span class="kt">var</span> <span class="n">styleSheet</span> <span class="p">=</span> <span class="n">AssetDatabase</span><span class="p">.</span><span class="n">LoadAssetAtPath</span><span class="p">&lt;</span><span class="n">StyleSheet</span><span class="p">&gt;(</span><span class="n">Path</span><span class="p">.</span><span class="n">USS</span><span class="p">(</span><span class="s">&quot;Translator&quot;</span><span class="p">));</span>
+    <span class="n">Root</span><span class="p">.</span><span class="n">styleSheets</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">styleSheet</span><span class="p">);</span>
+
+    <span class="cp">#endregion</span>
+
+<span class="hll">    <span class="n">SetupLayout</span><span class="p">();</span>
+</span><span class="p">}</span>
+</pre></div>
+
+<p>Для второго случая вызываем <code>SetupLayout()</code> в <code>set</code> публичного свойства <code>Lang</code>:</p>
+<div class="codehilite"><pre><span></span><span class="k">public</span> <span class="n">Language</span> <span class="n">Lang</span>
+<span class="p">{</span>
+    <span class="k">get</span> <span class="p">=&gt;</span> <span class="n">lang</span><span class="p">;</span>
+
+    <span class="k">set</span>
+    <span class="p">{</span>
+        <span class="n">lang</span> <span class="p">=</span> <span class="k">value</span><span class="p">;</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="n">lang</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span>
+            <span class="n">EditorUtility</span><span class="p">.</span><span class="n">SetDirty</span><span class="p">(</span><span class="n">lang</span><span class="p">);</span>
+
+<span class="hll">        <span class="n">SetupLayout</span><span class="p">();</span>
+</span>    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+<h2 id="интерфейс-без-языка">Интерфейс без языка<a class="headerlink" href="#интерфейс-без-языка" title="Permanent link">#</a></h2>
+<p>Разберемся с самым простым случаем, когда при открытии окна язык не указан. Это означает, что мы должны попросить пользователя выбрать его.</p>
+<p>В методе <code>SetupNoLangLayout</code> создадим текстовое поле и кнопку:</p>
+<div class="codehilite"><pre><span></span><span class="k">void</span> <span class="nf">SetupNoLangLayout</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">Root</span><span class="p">.</span><span class="n">AddToClassList</span><span class="p">(</span><span class="s">&quot;no-lang&quot;</span><span class="p">);</span>
+
+    <span class="kt">var</span> <span class="n">message</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Label</span><span class="p">(</span><span class="s">&quot;Select a language to work with Translator.&quot;</span><span class="p">);</span>
+
+    <span class="kt">var</span> <span class="n">selectBtn</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Button</span><span class="p">(()</span> <span class="p">=&gt;</span>
+    <span class="p">{</span>
+        <span class="n">OpenLangPicker</span><span class="p">();</span>
+    <span class="p">});</span>
+
+    <span class="n">selectBtn</span><span class="p">.</span><span class="n">text</span> <span class="p">=</span> <span class="s">&quot;Select&quot;</span><span class="p">;</span>
+
+    <span class="n">Root</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">message</span><span class="p">);</span>
+    <span class="n">Root</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">selectBtn</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+
+<p>Теперь перейдите в редактор Unity. В верхнем меню выберите "Window &gt; Translator". Вы увидете что-то типо такого:</p>
+<p><a href="images/no-lang-layout.png"><img alt="Интерфейс без языка и без стилей" src="images/no-lang-layout.png" /></a></p>
+<p>Выглядит коряво. Давайте перейдем в таблицу стилей <code>Translator.uss</code> и сделаем по красоте:</p>
+<div class="codehilite"><pre><span></span><span class="c">/* No language */</span>
+
+<span class="p">.</span><span class="nc">no-lang</span>
+<span class="p">{</span>
+    <span class="k">flex</span><span class="p">:</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="k">justify-content</span><span class="p">:</span> <span class="kc">center</span><span class="p">;</span>
+    <span class="k">align-items</span><span class="p">:</span> <span class="kc">center</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="p">.</span><span class="nc">no-lang</span> <span class="nt">Button</span>
+<span class="p">{</span>
+    <span class="k">margin-top</span><span class="p">:</span> <span class="mi">10</span><span class="kt">px</span><span class="p">;</span>
+    <span class="k">width</span><span class="p">:</span> <span class="mi">150</span><span class="kt">px</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+<p>Так как у корневого элемента есть класс <code>no-lang</code>, мы можем растянуть его на всю шириную и высоту окна <code>flex: 1</code>, а весь контент разместить по центру (<code>justify-content: center</code> и <code>align-items: center</code>).</p>
+<p>Затем установили фиксированную ширину кнопки и дали ей небольшой отступ от пояснительного текста.</p>
+<p>Снова открываем окно в Unity. Вот теперь выглядит отлично!</p>
+<p><a href="images/no-lang.gif"><img alt="Готовый интерфейс без языка" class="w7" src="images/no-lang.gif" /></a></p>
+<h2 id="шапка">Шапка<a class="headerlink" href="#шапка" title="Permanent link">#</a></h2>
+<p>Большая часть всех стандартных окон Unity имеет шапку. Несколько примеров:</p>
+<ul>
+<li>Окно "Иерархия"</li>
+</ul>
+<p><a href="images/header-example-hierarchy.png"><img alt="Шапка окна &quot;Иерархия&quot;" class="w7" src="images/header-example-hierarchy.png" /></a></p>
+<ul>
+<li>Окно "Проект"</li>
+</ul>
+<p><a href="images/header-example-project.png"><img alt="Шапка окна &quot;Проект&quot;" class="w7" src="images/header-example-project.png" /></a></p>
+<ul>
+<li>Окно "Сцена"</li>
+</ul>
+<p><a href="images/header-example-scene.png"><img alt="Шапка окна &quot;Сцена&quot;" class="w7" src="images/header-example-scene.png" /></a></p>
+<p>В шапке, как правило, содержатся кнопки основных действий и строка поиска. Именно такая шапка и нужна нашему "Translator".</p>
+<h3 id="разметка-и-стили">Разметка и стили<a class="headerlink" href="#разметка-и-стили" title="Permanent link">#</a></h3>
+<p>В папке <code>Editor Resources/uxml</code> Создадим файл <code>Translator.uxml</code>. В нем будет разметка интерфейса редактора. Сразу загрузим разметку в методе <code>SetupLangLayout</code> класса <code>Translator</code>:</p>
+<div class="codehilite"><pre><span></span><span class="k">void</span> <span class="nf">SetupLangLayout</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">Root</span><span class="p">.</span><span class="n">AddToClassList</span><span class="p">(</span><span class="s">&quot;has-lang&quot;</span><span class="p">);</span>
+
+    <span class="cp">#region Loading UXML</span>
+
+    <span class="kt">var</span> <span class="n">uiAsset</span> <span class="p">=</span> <span class="n">AssetDatabase</span><span class="p">.</span><span class="n">LoadAssetAtPath</span><span class="p">&lt;</span><span class="n">VisualTreeAsset</span><span class="p">&gt;(</span><span class="n">Path</span><span class="p">.</span><span class="n">UXML</span><span class="p">(</span><span class="s">&quot;Translator&quot;</span><span class="p">));</span>
+    <span class="n">uiAsset</span><span class="p">.</span><span class="n">CloneTree</span><span class="p">(</span><span class="n">Root</span><span class="p">);</span>
+
+    <span class="cp">#endregion</span>
+<span class="p">}</span>
+</pre></div>
+
+<p>Вернемся к <code>Translator.uxml</code> и создадим разметку шапки:</p>
+<div class="codehilite"><pre><span></span><span class="nt">&lt;UXML</span> <span class="na">xmlns=</span><span class="s">&quot;UnityEngine.UIElements&quot;</span> <span class="na">xmlns:uie=</span><span class="s">&quot;UnityEditor.UIElements&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;uie:Toolbar</span> <span class="na">class=</span><span class="s">&quot;header&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;VisualElement</span> <span class="na">class=</span><span class="s">&quot;actions&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;uie:ToolbarButton</span> <span class="na">name=</span><span class="s">&quot;lang-switcher&quot;</span> <span class="na">tooltip=</span><span class="s">&quot;Change language...&quot;</span> <span class="nt">/&gt;</span>
+            <span class="nt">&lt;uie:ToolbarButton</span> <span class="na">name=</span><span class="s">&quot;add-phrase&quot;</span> <span class="na">text=</span><span class="s">&quot;Add phrase&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;/VisualElement&gt;</span>
+
+        <span class="nt">&lt;uie:ToolbarPopupSearchField</span> <span class="na">name=</span><span class="s">&quot;search&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/uie:Toolbar&gt;</span>
+<span class="nt">&lt;/UXML&gt;</span>
+</pre></div>
+
+<p>В коде выше шапка разбита на две части: левую, которая содержит две кнопки (переключение языка и добавление новой фразы) и правую — поле поиска по фразам.</p>
+<p>Проверим, как это выглядит. Откройте окно и выберите любой язык:</p>
+<p><a href="images/toolbar-layout.png"><img alt="Разметка шапки" class="w7" src="images/toolbar-layout.png" /></a></p>
+<p>Очевидно, что выглядит немного убого. Исправим это! В <code>Translator.uss</code>, сразу под стилями интерфейса без языка начнем писать стили для нашей шапки:</p>
+<div class="codehilite"><pre><span></span><span class="c">/* Has language */</span>
+
+<span class="p">.</span><span class="nc">header</span>
+<span class="p">{</span>
+    <span class="k">justify-content</span><span class="p">:</span> <span class="kc">space-between</span><span class="p">;</span>
+    <span class="k">flex-shrink</span><span class="p">:</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="p">.</span><span class="nc">header</span> <span class="p">.</span><span class="nc">actions</span>
+<span class="p">{</span>
+    <span class="k">flex-direction</span><span class="p">:</span> <span class="kc">row</span><span class="p">;</span>
+    <span class="k">flex-shrink</span><span class="p">:</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="p">.</span><span class="nc">header</span> <span class="p">.</span><span class="nc">actions</span> <span class="nt">ToolbarButton</span>
+<span class="p">{</span>
+    <span class="k">margin-left</span><span class="p">:</span> <span class="mi">5</span><span class="kt">px</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="p">#</span><span class="nn">search</span>
+<span class="p">{</span>
+    <span class="k">margin-left</span><span class="p">:</span> <span class="mi">20</span><span class="kt">px</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="p">#</span><span class="nn">search</span> <span class="p">.</span><span class="nc">unity-toolbar-search-field__search-button</span>
+<span class="p">{</span>
+    <span class="k">flex-shrink</span><span class="p">:</span> <span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="p">#</span><span class="nn">search</span> <span class="nt">TextField</span>
+<span class="p">{</span>
+    <span class="k">flex</span><span class="p">:</span> <span class="mi">1</span><span class="p">;</span>
+
+    <span class="k">max-width</span><span class="p">:</span> <span class="mi">300</span><span class="kt">px</span><span class="p">;</span>
+    <span class="k">min-width</span><span class="p">:</span> <span class="mi">75</span><span class="kt">px</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+<p>Сначала мы разводим две части шапки в разные стороны (<code>justify-content: space-between;</code>). Далее ставим кнопки левой части в строку и запрещаем им сжиматься (<code>flex-direction: row;</code> и <code>flex-shrink: 0;</code>). Затем добавляем отступы для каждой кнопки, а также большой отступ слева для поля поиска (чтобы оно вплотную не прижималось к кнопкам). Наконец, устанавливаем максимальную и минимальную ширину поля поиска.</p>
+<p>Результат:</p>
+<p><a href="images/toolbar.png"><img alt="Готовая шапка" class="w7" src="images/toolbar.png" /></a></p>
+<p>Выглядит отлично!</p>
+<p>Осталось только дописать логику.</p>
+<h3 id="кнопки-действий">Кнопки действий<a class="headerlink" href="#кнопки-действий" title="Permanent link">#</a></h3>
+<p>Начнем с самой левой кнопки — кнопки выбора языка. В методе <code>SetupLangLayout</code>, под кодом загрузки разметки пишем следующее:</p>
+<div class="codehilite"><pre><span></span><span class="cp">#region Toolbar actions</span>
+
+<span class="kt">var</span> <span class="n">langBtn</span> <span class="p">=</span> <span class="n">Root</span><span class="p">.</span><span class="n">Query</span><span class="p">&lt;</span><span class="n">Button</span><span class="p">&gt;(</span><span class="s">&quot;lang-switcher&quot;</span><span class="p">).</span><span class="n">First</span><span class="p">();</span>
+
+<span class="n">langBtn</span><span class="p">.</span><span class="n">text</span> <span class="p">=</span> <span class="n">Lang</span><span class="p">.</span><span class="n">Info</span><span class="p">.</span><span class="n">Code</span><span class="p">;</span>
+<span class="n">langBtn</span><span class="p">.</span><span class="n">RegisterCallback</span><span class="p">&lt;</span><span class="n">MouseUpEvent</span><span class="p">&gt;((</span><span class="n">e</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="n">OpenLangPicker</span><span class="p">());</span>
+
+<span class="cp">#endregion</span>
+</pre></div>
+
+<p>Теперь в левой кнопке отображается код текущего языка. По клику на эту кнопку открывается окно с выбором языка.</p>
+<p><a href="images/toolbar-lang.png"><img alt="Готовая шапка с кодом языка" src="images/toolbar-lang.png" /></a></p>
+<p>Вторую кнопку ("Add phrase") пока не будем трогать. Оставим для нее место в коде:</p>
+<div class="codehilite"><pre><span></span><span class="cp">#region Toolbar actions</span>
+
+<span class="kt">var</span> <span class="n">langBtn</span> <span class="p">=</span> <span class="n">Root</span><span class="p">.</span><span class="n">Query</span><span class="p">&lt;</span><span class="n">Button</span><span class="p">&gt;(</span><span class="s">&quot;lang-switcher&quot;</span><span class="p">).</span><span class="n">First</span><span class="p">();</span>
+
+<span class="n">langBtn</span><span class="p">.</span><span class="n">text</span> <span class="p">=</span> <span class="n">Lang</span><span class="p">.</span><span class="n">Info</span><span class="p">.</span><span class="n">Code</span><span class="p">;</span>
+<span class="n">langBtn</span><span class="p">.</span><span class="n">RegisterCallback</span><span class="p">&lt;</span><span class="n">MouseUpEvent</span><span class="p">&gt;((</span><span class="n">e</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="n">OpenLangPicker</span><span class="p">());</span>
+
+<span class="hll"><span class="kt">var</span> <span class="n">addBtn</span> <span class="p">=</span> <span class="n">Root</span><span class="p">.</span><span class="n">Query</span><span class="p">&lt;</span><span class="n">Button</span><span class="p">&gt;(</span><span class="s">&quot;add-phrase&quot;</span><span class="p">).</span><span class="n">First</span><span class="p">();</span>
+</span><span class="hll">
+</span><span class="hll"><span class="n">addBtn</span><span class="p">.</span><span class="n">RegisterCallback</span><span class="p">&lt;</span><span class="n">MouseUpEvent</span><span class="p">&gt;((</span><span class="n">e</span><span class="p">)</span> <span class="p">=&gt;</span>
+</span><span class="hll"><span class="p">{</span>
+</span><span class="hll">    <span class="cm">/* Добавляем фразу в редактор */</span>
+</span><span class="hll"><span class="p">});</span>
+</span>
+<span class="cp">#endregion</span>
+</pre></div>
+
+<h3 id="поиск">Поиск<a class="headerlink" href="#поиск" title="Permanent link">#</a></h3>
+<p>Перейдем к логике поисковой строки. Сам поиск реализовывать пока не будем, но зато настроим поисковые фильтры: искать по ID, по тексту фразы или по тому и другому сразу, а также учет регистра.</p>
+<p>Для начала создадим внутри нашего класса <code>Translator</code> перечисление <code>SearchFilter</code>:</p>
+<div class="codehilite"><pre><span></span><span class="k">enum</span> <span class="n">SearchFilter</span>
+<span class="p">{</span>
+    <span class="n">All</span><span class="p">,</span> <span class="n">ID</span><span class="p">,</span> <span class="n">Text</span>
+<span class="p">}</span>
+</pre></div>
+
+<p>Теперь добавим две переменные в тело класса: <code>sFilter</code> и <code>sMatchCase</code>:</p>
+<div class="codehilite"><pre><span></span><span class="n">SearchFilter</span> <span class="n">sFilter</span> <span class="p">=</span> <span class="n">SearchFilter</span><span class="p">.</span><span class="n">All</span><span class="p">;</span>
+<span class="kt">bool</span> <span class="n">sMatchCase</span> <span class="p">=</span> <span class="k">false</span><span class="p">;</span>
+</pre></div>
+
+<p>Первая содержит текущий выбранный поисковый фильтр, а вторая — учитывать регистр или нет. По умолчанию поиск производится по ID и тексту без учета регистра.</p>
+<p>Теперь нужно дать возможность выбрать эти фильтры по нажатию на иконку лупы поисковой строки.</p>
+<p>Создадим метод <code>SetupSearchMenu</code>:</p>
+<div class="codehilite"><pre><span></span><span class="k">void</span> <span class="nf">SetupSearchMenu</span><span class="p">(</span><span class="n">ToolbarPopupSearchField</span> <span class="n">searchBar</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">foreach</span> <span class="p">(</span><span class="kt">var</span> <span class="n">fName</span> <span class="k">in</span> <span class="n">Enum</span><span class="p">.</span><span class="n">GetNames</span><span class="p">(</span><span class="k">typeof</span><span class="p">(</span><span class="n">SearchFilter</span><span class="p">)))</span>
+    <span class="p">{</span>
+        <span class="n">searchBar</span><span class="p">.</span><span class="n">menu</span><span class="p">.</span><span class="n">AppendAction</span><span class="p">(</span>
+            <span class="n">fName</span><span class="p">,</span>
+            <span class="p">(</span><span class="n">e</span><span class="p">)</span> <span class="p">=&gt;</span> 
+            <span class="p">{</span> 
+                <span class="n">sFilter</span> <span class="p">=</span> <span class="p">(</span><span class="n">SearchFilter</span><span class="p">)</span><span class="n">Enum</span><span class="p">.</span><span class="n">Parse</span><span class="p">(</span><span class="k">typeof</span><span class="p">(</span><span class="n">SearchFilter</span><span class="p">),</span> <span class="n">fName</span><span class="p">);</span>
+                <span class="cm">/* Обновить результаты поиска */</span>
+            <span class="p">},</span>
+            <span class="p">(</span><span class="n">e</span><span class="p">)</span> <span class="p">=&gt;</span> 
+            <span class="p">{</span> 
+                <span class="k">return</span> <span class="n">sFilter</span><span class="p">.</span><span class="n">ToString</span><span class="p">()</span> <span class="p">==</span> <span class="n">fName</span> <span class="p">?</span> <span class="n">DropdownMenuAction</span><span class="p">.</span><span class="n">Status</span><span class="p">.</span><span class="n">Checked</span> <span class="p">:</span> <span class="n">DropdownMenuAction</span><span class="p">.</span><span class="n">Status</span><span class="p">.</span><span class="n">Normal</span><span class="p">;</span> 
+            <span class="p">}</span>
+        <span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="n">searchBar</span><span class="p">.</span><span class="n">menu</span><span class="p">.</span><span class="n">AppendSeparator</span><span class="p">();</span>
+
+    <span class="n">searchBar</span><span class="p">.</span><span class="n">menu</span><span class="p">.</span><span class="n">AppendAction</span><span class="p">(</span>
+        <span class="s">&quot;Match case&quot;</span><span class="p">,</span>
+        <span class="p">(</span><span class="n">e</span><span class="p">)</span> <span class="p">=&gt;</span> 
+        <span class="p">{</span>
+            <span class="n">sMatchCase</span> <span class="p">=</span> <span class="p">!</span><span class="n">sMatchCase</span><span class="p">;</span>
+            <span class="cm">/* Обновить результаты поиска */</span>
+        <span class="p">},</span>
+        <span class="p">(</span><span class="n">e</span><span class="p">)</span> <span class="p">=&gt;</span>
+        <span class="p">{</span>
+            <span class="k">return</span> <span class="n">sMatchCase</span> <span class="p">?</span> <span class="n">DropdownMenuAction</span><span class="p">.</span><span class="n">Status</span><span class="p">.</span><span class="n">Checked</span> <span class="p">:</span> <span class="n">DropdownMenuAction</span><span class="p">.</span><span class="n">Status</span><span class="p">.</span><span class="n">Normal</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+
+<p>В первой половине метода мы циклом проходимся по все фильтрам и добавляем их в меню. Во второй половине добавляем разделитесь, а сразу после него — пункт "Учитывать регистр".</p>
+<p>Теперь в методе <code>SetupLangLayout</code> создаем раздел для работы со строкой поиска:</p>
+<div class="codehilite"><pre><span></span><span class="cp">#region Search</span>
+
+<span class="kt">var</span> <span class="n">searchBar</span> <span class="p">=</span> <span class="n">Root</span><span class="p">.</span><span class="n">Query</span><span class="p">&lt;</span><span class="n">ToolbarPopupSearchField</span><span class="p">&gt;(</span><span class="s">&quot;search&quot;</span><span class="p">).</span><span class="n">First</span><span class="p">();</span>
+
+<span class="n">SetupSearchMenu</span><span class="p">(</span><span class="n">searchBar</span><span class="p">);</span>
+
+<span class="n">searchBar</span><span class="p">.</span><span class="n">RegisterValueChangedCallback</span><span class="p">((</span><span class="n">e</span><span class="p">)</span> <span class="p">=&gt;</span>
+<span class="p">{</span>
+    <span class="cm">/* Запуск поиска */</span>
+<span class="p">});</span>
+
+<span class="cp">#endregion</span>
+</pre></div>
+
+<p>Откройте окно и нажимите на иконку лупы в строке поиска. Появится выпадающее меню с настройками:</p>
+<p><img alt="Выпадающиее меню настроек поиска" src="images/search-menu.png" /></p>
+<h2 id="редактор-через-инспектор">Редактор через инспектор<a class="headerlink" href="#редактор-через-инспектор" title="Permanent link">#</a></h2>
+<p>С помощью публичного свойства <code>Lang</code> мы можем установить язык редактора. Это значит, что пора связать инспектор с редактором!</p>
+<p>Напомню, что в инспекторе (<code>LanguageInspector</code>) у нас имеются следующие строчки:</p>
+<div class="codehilite"><pre><span></span><span class="n">openButton</span><span class="p">.</span><span class="n">RegisterCallback</span><span class="p">&lt;</span><span class="n">MouseUpEvent</span><span class="p">&gt;(</span><span class="n">e</span> <span class="p">=&gt;</span> 
+<span class="p">{</span>
+    <span class="c1">// TODO: Open Translator editor window</span>
+<span class="p">});</span>
+</pre></div>
+
+<p>Вместо комментария вызовем окно редактора и в тот же момент зададим нужный язык:</p>
+<div class="codehilite"><pre><span></span><span class="n">openButton</span><span class="p">.</span><span class="n">RegisterCallback</span><span class="p">&lt;</span><span class="n">MouseUpEvent</span><span class="p">&gt;(</span><span class="n">e</span> <span class="p">=&gt;</span>
+<span class="p">{</span>
+    <span class="n">Translator</span><span class="p">.</span><span class="n">ShowWindow</span><span class="p">().</span><span class="n">Lang</span> <span class="p">=</span> <span class="p">(</span><span class="n">Language</span><span class="p">)</span><span class="n">target</span><span class="p">;</span>
+<span class="p">});</span>
+</pre></div>
+
+<p>Готово! Теперь редактор можно вызвать из инспектора по нажатию всего-лишь одной кнопки!</p>
+                
+                  
+                
+              
+
+    <!-- Contributors -->
+    <div class="contributors" style="display: none;">
+        <h2 id="contributors">Вклад внесли <span class="contributors--count">0</span></h2>
+        <ul class="contributors--list"></ul>
+    </div>
+
+    <script>
+        $(function ()
+        {
+            var editUrl = 'https://github.com/ounity/book/edit/master/docs/examples/localisation/language-editor/basics/index.md';
+            var fpath = editUrl.split('https://github.com/ounity/book/edit/master/').pop();
+
+            var already = [];
+
+            fetch('https://api.github.com/repos/ounity/book/commits?path=' + fpath).then(function (response)
+            {
+                return response.json();
+            }).then(function (commits)
+            {
+                for (var i = 0; i < commits.length; i++)
+                {
+                    var author = commits[i].author;
+
+                    if (already.includes(author.login))
+                    {
+                        continue;
+                    }
+                    else
+                    {
+                        already.push(author.login);
+                    }
+
+                    var url = 'https://github.com/ounity/book/commits/master/' + fpath + '?author=' + author.login;
+
+                    $('.contributors--list').append('<li><a title="' + author.login + '" href="' + url + '" target="_blank"><img src="' + author.avatar_url + '&s=40" /></a></li>');
+                }
+
+                $('.contributors--count').html(already.length);
+
+                if (already.length > 0)
+                {
+                    $('.contributors').show();
+                }
+            });
+        });
+    </script>
+
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+
+<!-- Application footer -->
+<footer class="md-footer">
+
+    <!-- Link to previous and/or next page -->
+    
+    <div class="md-footer-nav">
+        <nav class="md-footer-nav__inner md-grid">
+
+            <!-- Link to previous page -->
+            
+            <a href="../../language-inspector/" title="Инспектор языка"
+                class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+                <div class="md-flex__cell md-flex__cell--shrink">
+                    <i class="md-icon md-icon--arrow-back
+                    md-footer-nav__button"></i>
+                </div>
+                <div class="md-flex__cell md-flex__cell--stretch
+                  md-footer-nav__title">
+                    <span class="md-flex__ellipsis">
+                        <span class="md-footer-nav__direction">
+                            Назад
+                        </span>
+                        Инспектор языка
+                    </span>
+                </div>
+            </a>
+            
+
+            <!-- Link to next page -->
+            
+            <a href="../phrases/" title="Редактор языка. Фразы"
+                class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+                <div class="md-flex__cell md-flex__cell--stretch
+                  md-footer-nav__title">
+                    <span class="md-flex__ellipsis">
+                        <span class="md-footer-nav__direction">
+                            Вперед
+                        </span>
+                        Редактор языка. Фразы
+                    </span>
+                </div>
+                <div class="md-flex__cell md-flex__cell--shrink">
+                    <i class="md-icon md-icon--arrow-forward
+                    md-footer-nav__button"></i>
+                </div>
+            </a>
+            
+        </nav>
+    </div>
+    
+</footer>
+
+<!-- Counters -->
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function (m, e, t, r, i, k, a) {
+    m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments) };
+        m[i].l = 1 * new Date(); k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+    })
+        (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+    ym(53540761, "init", {
+        clickmap: true,
+        trackLinks: true,
+        accurateTrackBounce: true
+    });
+</script>
+<noscript>
+    <div><img src="https://mc.yandex.ru/watch/53540761" style="position:absolute; left:-9999px;" alt="" /></div>
+</noscript>
+<!-- /Yandex.Metrika counter -->
+      
+    </div>
+    
+      <script src="../../../../assets/javascripts/application.245445c6.js"></script>
+      
+        
+        
+          
+          <script src="../../../../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+              
+              
+                <script src="../../../../assets/javascripts/lunr/lunr.ru.js"></script>
+              
+            
+          
+            
+          
+          
+            <script src="../../../../assets/javascripts/lunr/lunr.multi.js"></script>
+          
+        
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../../../.."}})</script>
+      
+    
+  </body>
+</html>

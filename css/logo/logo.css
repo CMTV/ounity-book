@@ -1,0 +1,36 @@
+.md-logo {
+  width: auto !important;
+  height: auto !important;
+}
+
+.logo {
+  width: 26px;
+  height: 26px;
+}
+
+.logo--nav {
+  width: 55px;
+  height: 55px;
+}
+
+.logo--circle {
+  -webkit-transform-origin: center;
+          transform-origin: center;
+  -webkit-animation: logo-rotate 5s linear infinite;
+          animation: logo-rotate 5s linear infinite;
+}
+
+@-webkit-keyframes logo-rotate {
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes logo-rotate {
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+/*# sourceMappingURL=logo.css.map */

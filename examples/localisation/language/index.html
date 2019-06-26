@@ -1,0 +1,1452 @@
+
+
+
+
+<!doctype html>
+<html lang="ru" class="no-js">
+  <head>
+    
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+        <link rel="canonical" href="https://book.ounity.ru/examples/localisation/language/">
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="Копировать в буфер">
+      
+        <meta name="lang:clipboard.copied" content="Скопировано в буфер">
+      
+        <meta name="lang:search.language" content="ru, en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="Совпадений не найдено">
+      
+        <meta name="lang:search.result.one" content="Найдено 1 совпадение">
+      
+        <meta name="lang:search.result.other" content="Найдено # совпадений">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../../favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.4.0">
+    
+
+    <meta property="og:image" content="https://book.ounity.ru/ogLogo.png" />
+
+    
+      
+        <title>Язык - О Unity</title>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/application.0284f74d.css">
+      
+        <link rel="stylesheet" href="../../../assets/stylesheets/application-palette.01803549.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="">
+      
+    
+
+    <!-- Font Awesome 5 -->
+    <link rel="stylesheet" 
+          href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" 
+          integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" 
+          crossorigin="anonymous">
+
+    <!-- Contributors -->
+    <link rel="stylesheet" href="../../../css/contributors/contributors.css" />
+
+    <!-- Donate -->
+    <link rel="stylesheet" href="../../../css/donate/donate.css" />
+
+    <!-- Nav -->
+    <link rel="stylesheet" href="../../../css/nav/nav.css" />
+
+    <!-- Content -->
+    <link rel="stylesheet" href="../../../css/content/content.css" />
+
+    <!-- Override -->
+    <link rel="stylesheet" href="../../../css/override/override.css" />
+
+    <!-- Logo -->
+    <link rel="stylesheet" href="../../../css/logo/logo.css" />
+
+    <!-- Footer -->
+    <link rel="stylesheet" href="../../../css/footer/footer.css" />
+
+    
+    
+      <script src="../../../assets/javascripts/modernizr.74668098.js"></script>
+    
+
+    <!-- MathJax -->
+    <link rel="stylesheet" href="../../../css/mathjax/mathjax.css" />
+
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            jax: ["input/TeX", "output/HTML-CSS"],
+            text2jax: {
+                inlineMath: [ ['$', '$'], ["\\(", "\\)"] ],
+                displayMath: [ ['$$', '$$'], ["\\[", "\\]"] ],
+                processEscapes: true
+            },
+            messageStyle: "none"
+        });
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS_CHTML&locale=ru" async></script>
+
+    <!-- Magnific Popup -->
+    <link rel="stylesheet" href="../../../libs/magnific-popup/magnific-popup.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="../../../libs/magnific-popup/jquery.magnific-popup.min.js"></script>
+
+    <script>
+        $(function ()
+        {
+            $('.md-content a > img').each(function (i, elem)
+            {
+                $(this).parent().addClass('img-link');
+            });
+
+            $('.img-link').magnificPopup({type: 'image'});
+        });
+    </script>
+
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../../assets/fonts/material-icons.css">
+    
+    
+    
+      
+        
+<script>
+  window.ga = window.ga || function() {
+    (ga.q = ga.q || []).push(arguments)
+  }
+  ga.l = +new Date
+  /* Setup integration and send page view */
+  ga("create", "UA-139581561-1", "auto")
+  ga("set", "anonymizeIp", true)
+  ga("send", "pageview")
+  /* Register handler to log search on blur */
+  document.addEventListener("DOMContentLoaded", () => {
+    if (document.forms.search) {
+      var query = document.forms.search.query
+      query.addEventListener("blur", function() {
+        if (this.value) {
+          var path = document.location.pathname;
+          ga("send", "pageview", path + "?q=" + this.value)
+        }
+      })
+    }
+  })
+</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="white" data-md-color-accent="blue">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#язык" tabindex="1" class="md-skip">
+        Перейти к содержанию
+      </a>
+    
+    
+      <!-- Application header -->
+<header class="md-header" data-md-component="header">
+
+    <!-- Top-level navigation -->
+    <nav class="md-header-nav md-grid">
+        <div class="md-flex">
+
+            <!-- Link to home -->
+            <div class="md-flex__cell md-flex__cell--shrink">
+
+                <a href="https://book.ounity.ru"
+                   title="О Unity"
+                   class="md-header-nav__button md-logo">
+                    <svg class="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 211.15 212">
+                        <g class="logo--circle">
+                            <path class="circle-part--right"
+                                d="M189,41.2l-13.6,13.6a86.79,86.79,0,0,1,0,102.4L189,170.8a106,106,0,0,0,0-129.6Z" />
+                            <path class="circle-part--bottom-left"
+                                d="M156.35,176.29A86.95,86.95,0,0,1,19.2,119.5H0a106,106,0,0,0,169.94,70.39Z" />
+                            <path class="circle-part--top-left"
+                                d="M19.2,92.5A86.95,86.95,0,0,1,156.35,35.71l13.59-13.6A106,106,0,0,0,0,92.5Z" />
+                        </g>
+                    
+                        <path class="logo--letter"
+                            d="M140.15,62.77V118a31.83,31.83,0,0,1-4.23,16.57,27.48,27.48,0,0,1-12.22,10.9,43.69,43.69,0,0,1-18.9,3.8q-16.45,0-25.55-8.43t-9.1-23.07v-55h18V115q0,9.87,4,14.47t13.12,4.61c5.92,0,10.2-1.55,12.87-4.64s4-7.94,4-14.55V62.77Z" />
+                    </svg>
+                </a>
+            </div>
+
+            <!-- Button to toggle drawer -->
+            <div class="md-flex__cell md-flex__cell--shrink">
+                <label class="md-icon md-icon--menu md-header-nav__button"
+                       for="__drawer"></label>
+            </div>
+
+            <!-- Header title -->
+            <div class="md-flex__cell md-flex__cell--stretch">
+                <div class="md-flex__ellipsis md-header-nav__title"
+                     data-md-component="title">
+                    
+                    <span class="md-header-nav__topic">
+              О Unity
+            </span>
+                    <span class="md-header-nav__topic">
+              Язык
+            </span>
+                    
+                </div>
+            </div>
+
+            <!-- Button to open search dialogue -->
+            <div class="md-flex__cell md-flex__cell--shrink">
+                
+                <label class="md-icon md-icon--search md-header-nav__button"
+                       for="__search"></label>
+
+                <!-- Search interface -->
+                
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Поиск" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Начните печатать для поиска
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+                
+            </div>
+
+            <div class="md-flex__cell md-flex__cell--shrink">
+                <a href="https://www.patreon.com/mathit" target="_blank" class="donate-button">
+    <i class="fas fa-hand-holding-usd"></i>
+    <span>Поддержать!</span>
+</a>
+            </div>
+        </div>
+    </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <!-- Main navigation -->
+<nav class="md-nav md-nav--primary" data-md-level="0">
+
+    <!-- Site title -->
+    <label class="md-nav__title md-nav__title--site" for="__drawer">
+        <a href="https://book.ounity.ru"
+           title="О Unity" class="md-nav__button md-logo">
+            <svg class="logo logo--nav" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 211.15 212">
+                <g class="logo--circle">
+                    <path class="circle-part--right"
+                        d="M189,41.2l-13.6,13.6a86.79,86.79,0,0,1,0,102.4L189,170.8a106,106,0,0,0,0-129.6Z" />
+                    <path class="circle-part--bottom-left"
+                        d="M156.35,176.29A86.95,86.95,0,0,1,19.2,119.5H0a106,106,0,0,0,169.94,70.39Z" />
+                    <path class="circle-part--top-left"
+                        d="M19.2,92.5A86.95,86.95,0,0,1,156.35,35.71l13.59-13.6A106,106,0,0,0,0,92.5Z" />
+                </g>
+            
+                <path class="logo--letter"
+                    d="M140.15,62.77V118a31.83,31.83,0,0,1-4.23,16.57,27.48,27.48,0,0,1-12.22,10.9,43.69,43.69,0,0,1-18.9,3.8q-16.45,0-25.55-8.43t-9.1-23.07v-55h18V115q0,9.87,4,14.47t13.12,4.61c5.92,0,10.2-1.55,12.87-4.64s4-7.94,4-14.55V62.77Z" />
+            </svg>
+        </a>
+        <span class="site-name">О Unity</span>
+    </label>
+
+    <!-- Donate button -->
+    <div class="md-nav__donate">
+        <a href="https://www.patreon.com/mathit" target="_blank" class="donate-button">
+    <i class="fas fa-hand-holding-usd"></i>
+    <span>Поддержать!</span>
+</a>
+    </div>
+
+    <ul class="md-nav__list nav-links">
+        
+        <li class="md-nav__item">
+            <a href="https://ounity.ru" target="_blank" title="Задать вопрос"
+               class="md-nav__link">
+                <i class="far fa-question-circle"></i>
+                Задать вопрос
+            </a>
+        </li>
+        
+        <li class="md-nav__item">
+            <a href="https://ounity.ru" target="_blank" title="Форум"
+               class="md-nav__link">
+                <i class="far fa-comments"></i>
+                Форум
+            </a>
+        </li>
+        
+        <li class="md-nav__item">
+            <a href="https://github.com/ounity/book" target="_blank" title="GitHub"
+               class="md-nav__link">
+                <i class="fab fa-github"></i>
+                GitHub
+            </a>
+        </li>
+        
+    </ul>
+
+    <!-- Render item list -->
+    <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+        
+        
+
+
+  <li class="md-nav__item">
+    <a href="../../.." title="Об учебнике" class="md-nav__link">
+      Об учебнике
+    </a>
+  </li>
+
+        
+        
+        
+        
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Расширение редактора
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Расширение редактора
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../extend/editor-window/" title="Окно редактора" class="md-nav__link">
+      Окно редактора
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+        
+        
+        
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      UI
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        UI
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-1" type="checkbox" id="nav-3-1">
+    
+    <label class="md-nav__link" for="nav-3-1">
+      UI Elements
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-1">
+        UI Elements
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../ui/ui-elements/about/" title="О UI Elements" class="md-nav__link">
+      О UI Elements
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../ui/ui-elements/usage/" title="Использование" class="md-nav__link">
+      Использование
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../ui/ui-elements/interface-structure/" title="Структура интерфейса" class="md-nav__link">
+      Структура интерфейса
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../ui/ui-elements/uxml/" title="UXML" class="md-nav__link">
+      UXML
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../.." title="USS" class="md-nav__link">
+      USS
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../.." title="Логика" class="md-nav__link">
+      Логика
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+        
+        
+        
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Пакетная система
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        Пакетная система
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-1" type="checkbox" id="nav-4-1">
+    
+    <label class="md-nav__link" for="nav-4-1">
+      Собственный пакет
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-4-1">
+        Собственный пакет
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../packages/custom/creation/" title="Создание пакета" class="md-nav__link">
+      Создание пакета
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../packages/custom/naming/" title="Название пакета" class="md-nav__link">
+      Название пакета
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../packages/custom/sharing/" title="Распространение пакета" class="md-nav__link">
+      Распространение пакета
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../packages/custom/package-json/" title="Манифест пакета" class="md-nav__link">
+      Манифест пакета
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+        
+        
+        
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" checked>
+    
+    <label class="md-nav__link" for="nav-5">
+      Примеры
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        Примеры
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-1" type="checkbox" id="nav-5-1" checked>
+    
+    <label class="md-nav__link" for="nav-5-1">
+      Локализация
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-5-1">
+        Локализация
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../about/" title="О примере" class="md-nav__link">
+      О примере
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../package/" title="Пакет" class="md-nav__link">
+      Пакет
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Язык
+      </label>
+    
+    <a href="./" title="Язык" class="md-nav__link md-nav__link--active">
+      Язык
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Содержание</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#структура-информация-о-языке" title="Структура "Информация о языке"" class="md-nav__link">
+    Структура "Информация о языке"
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#структура-фраза" title="Структура "Фраза"" class="md-nav__link">
+    Структура "Фраза"
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#класс-язык" title="Класс "Язык"" class="md-nav__link">
+    Класс "Язык"
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#язык-по-умолчанию" title="Язык по умолчанию" class="md-nav__link">
+    Язык по умолчанию
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#информация-о-языке" title="Информация о языке" class="md-nav__link">
+    Информация о языке
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#получение-всех-фраз" title="Получение всех фраз" class="md-nav__link">
+    Получение всех фраз
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#работа-с-фразами" title="Работа с фразами" class="md-nav__link">
+    Работа с фразами
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#итоговый-код" title="Итоговый код" class="md-nav__link">
+    Итоговый код
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../language-access/" title="Доступ к языку" class="md-nav__link">
+      Доступ к языку
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../language-inspector/" title="Инспектор языка" class="md-nav__link">
+      Инспектор языка
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../language-editor/basics/" title="Редактор языка. Основа" class="md-nav__link">
+      Редактор языка. Основа
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../language-editor/phrases/" title="Редактор языка. Фразы" class="md-nav__link">
+      Редактор языка. Фразы
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../language-editor/ending/" title="Редактор языка. Конец" class="md-nav__link">
+      Редактор языка. Конец
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../usage/" title="Использование языка" class="md-nav__link">
+      Использование языка
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../text-component/" title="Текстовый компонент" class="md-nav__link">
+      Текстовый компонент
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+    </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Содержание</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#структура-информация-о-языке" title="Структура "Информация о языке"" class="md-nav__link">
+    Структура "Информация о языке"
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#структура-фраза" title="Структура "Фраза"" class="md-nav__link">
+    Структура "Фраза"
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#класс-язык" title="Класс "Язык"" class="md-nav__link">
+    Класс "Язык"
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#язык-по-умолчанию" title="Язык по умолчанию" class="md-nav__link">
+    Язык по умолчанию
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#информация-о-языке" title="Информация о языке" class="md-nav__link">
+    Информация о языке
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#получение-всех-фраз" title="Получение всех фраз" class="md-nav__link">
+    Получение всех фраз
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#работа-с-фразами" title="Работа с фразами" class="md-nav__link">
+    Работа с фразами
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#итоговый-код" title="Итоговый код" class="md-nav__link">
+    Итоговый код
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+    
+                
+                  <a href="https://github.com/ounity/book/edit/master/docs/examples/localisation/language/index.md" title="Редактировать страницу" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                <h1 id="язык">Язык<a class="headerlink" href="#язык" title="Permanent link">#</a></h1>
+<p>Пора создать базовые классы и структуры, составляющие фундамент пакета.</p>
+<h2 id="структура-информация-о-языке">Структура "Информация о языке"<a class="headerlink" href="#структура-информация-о-языке" title="Permanent link">#</a></h2>
+<p>Нам нужно как-то различать один язык от другого. Какие параметры имеет любой язык? Его название ("Русский") и код ("ru").</p>
+<p>Создадим структуру <code>LanguageInfo</code> в папке <code>Scripts/Runtime</code>, которая хранит эти две переменные. Почему структура? Потому что она требует меньше ресурсов, а передавать ее по ссылке мы все равно не будем.</p>
+<div class="codehilite"><pre><span></span><span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">UnityEngine</span><span class="p">;</span>
+
+<span class="k">namespace</span> <span class="nn">I18n</span>
+<span class="p">{</span>
+<span class="na">    [Serializable]</span>
+    <span class="k">public</span> <span class="k">struct</span> <span class="nc">LanguageInfo</span>
+    <span class="p">{</span>
+<span class="na">        [SerializeField]</span>
+        <span class="kt">string</span> <span class="n">code</span><span class="p">,</span> <span class="n">name</span><span class="p">;</span>
+
+        <span class="k">public</span> <span class="nf">LanguageInfo</span><span class="p">(</span><span class="kt">string</span> <span class="n">code</span><span class="p">,</span> <span class="kt">string</span> <span class="n">name</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">this</span><span class="p">.</span><span class="n">code</span> <span class="p">=</span> <span class="n">code</span><span class="p">;</span>
+            <span class="k">this</span><span class="p">.</span><span class="n">name</span> <span class="p">=</span> <span class="n">name</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="k">public</span> <span class="kt">string</span> <span class="n">Code</span> <span class="p">=&gt;</span> <span class="n">code</span><span class="p">.</span><span class="n">Trim</span><span class="p">();</span>
+        <span class="k">public</span> <span class="kt">string</span> <span class="n">Name</span> <span class="p">=&gt;</span> <span class="n">name</span><span class="p">.</span><span class="n">Trim</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+<p>Обратите внимание на то, что наша структура помечена атрибутом <code>[Serializable]</code>. Атрибут нужен потому что в будущем мы будем хранить объекты этой структуры в <code>ScriptableObject</code>, а он сохраняет только сериализуемые объекты. Другими словами, если этот атрибут убрать, то после каждого перезапуска Unity наш язык будет забывать, кто он и как его зовут.</p>
+<p>Также стоит отметить атрибут <code>[SerializeField]</code> с его помощью мы можем редактировать приватные переменные структуры внутри Unity, но не можем сделать это напрямую из кода. Это сделано намеренно. Нам не нужно, чтобы у других программистов была возможность изменить информацию о языке каким либо образом кроме редактора Unity.</p>
+<p>Единственное, что мы позволяем делать изнутри кода — читать значения переменных. Для этого создаем два публичных <code>get</code> свойства под каждую переменную:</p>
+<div class="codehilite"><pre><span></span><span class="k">public</span> <span class="kt">string</span> <span class="n">Code</span> <span class="p">=&gt;</span> <span class="n">code</span><span class="p">;</span>
+<span class="k">public</span> <span class="kt">string</span> <span class="n">Name</span> <span class="p">=&gt;</span> <span class="n">name</span><span class="p">;</span>
+</pre></div>
+
+<h2 id="структура-фраза">Структура "Фраза"<a class="headerlink" href="#структура-фраза" title="Permanent link">#</a></h2>
+<p>Вспомните раздел "<a href="../about/#как-использовать-i18n">Как использовать I18n</a>". Там мы используем метод <code>Phrase("game_over")</code>. Но что на самом деле происходит в момент вызова этого метода?</p>
+<p>Любой язык в I18n состоит из набора фраз. Фраза — две переменные: идентификатор фразы и ее текст. Например, у нас есть английский язык. В нем содержится фраза с идентификатором <code>game_over</code> и текстом <code>Game over</code>. Но есть и русский язык. Там тоже есть фраза с идентификатором <code>game_over</code>, но с другим текстом: <code>Конец игры</code>.</p>
+<p><a href="images/language-structure.png"><img alt="Структура языка" src="images/language-structure.png" /></a></p>
+<p>В результате вызова <code>Phrase("game_over")</code> мы получаем текст фразы нужного языка с данным идентификатором.</p>
+<p>Создадим структуру <code>Phrase</code> в папке <code>Scripts/Runtime</code>, которая и будет представлять собой фразу.</p>
+<div class="codehilite"><pre><span></span><span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">UnityEngine</span><span class="p">;</span>
+
+<span class="k">namespace</span> <span class="nn">I18n</span>
+<span class="p">{</span>
+<span class="na">    [Serializable]</span>
+    <span class="k">public</span> <span class="k">struct</span> <span class="nc">Phrase</span>
+    <span class="p">{</span>
+<span class="na">        [SerializeField]</span>
+        <span class="kt">string</span> <span class="n">id</span><span class="p">,</span> <span class="n">text</span><span class="p">;</span>
+
+        <span class="k">public</span> <span class="nf">Phrase</span><span class="p">(</span><span class="kt">string</span> <span class="n">id</span><span class="p">,</span> <span class="kt">string</span> <span class="n">text</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">this</span><span class="p">.</span><span class="n">id</span> <span class="p">=</span> <span class="n">id</span><span class="p">;</span>
+            <span class="k">this</span><span class="p">.</span><span class="n">text</span> <span class="p">=</span> <span class="n">text</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="k">public</span> <span class="kt">string</span> <span class="n">Id</span> <span class="p">=&gt;</span> <span class="n">id</span><span class="p">;</span>
+        <span class="k">public</span> <span class="kt">string</span> <span class="n">Text</span> <span class="p">=&gt;</span> <span class="n">text</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+<p>Все комментарии к коду из предыдущего раздела работают и для этой структуры.</p>
+<h2 id="класс-язык">Класс "Язык"<a class="headerlink" href="#класс-язык" title="Permanent link">#</a></h2>
+<p>Пришло время самих языков. Как мы уже выяснили выше, язык представляет собой лишь набор фраз и информацию о самом себе (название и код). Эта информация никак не зависит от сцен в игре. Поэтому выгоднее всего будет создать язык в виде скриптуемого объекта <code>ScriptableObject</code>.</p>
+<p>Создадим класс <code>Language</code> в папке <code>Scripts/Runtime</code>:</p>
+<div class="codehilite"><pre><span></span><span class="k">using</span> <span class="nn">System.Collections.Generic</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">UnityEngine</span><span class="p">;</span>
+
+<span class="k">namespace</span> <span class="nn">I18n</span>
+<span class="p">{</span>
+<span class="na">    [CreateAssetMenu(fileName = &quot;New Language&quot;, menuName = &quot;I18n/Language&quot;, order = 0)]</span>
+    <span class="k">public</span> <span class="k">class</span> <span class="nc">Language</span> <span class="p">:</span> <span class="n">ScriptableObject</span>
+    <span class="p">{</span>
+<span class="na">        [SerializeField]</span>
+        <span class="kt">bool</span> <span class="n">isDefault</span><span class="p">;</span>
+
+<span class="na">        [SerializeField]</span>
+        <span class="n">LanguageInfo</span> <span class="n">info</span><span class="p">;</span>
+
+<span class="na">        [SerializeField]</span>
+        <span class="n">List</span><span class="p">&lt;</span><span class="n">Phrase</span><span class="p">&gt;</span> <span class="n">phrases</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+<p>Обратите внимание на то, что все три переменные класса приватные. Это нужно для того, чтобы какой-нибудь другой программист случайно не изменил их. Любое изменение этих перменных должно происходить только через интерфейс редактора Unity! Для этого все эти переменные помечены атрибутом <code>[SerializeField]</code>.</p>
+<p>Уже сейчас вы можете создать несколько языковых ассетов. Для где-нибудь внутри проекта кликните правой кнопкой и выберите "Create &gt; I18n &gt; Language".</p>
+<p><a href="images/create-language.png"><img alt="Создание нового языка" src="images/create-language.png" /></a></p>
+<p>Выделите созданный язык. В инпекторе вы можете задать код языка (например, <code>ru</code>) и его название (например, <code>Русский</code>).</p>
+<p><a href="images/native-language-inspector.png"><img alt="Стандартный инспектор языка" class="w7" src="images/native-language-inspector.png" /></a></p>
+<p>Не расслабляйтесь! Мы только начали работу над классом <code>Language</code>. Еще много чего надо сделать.</p>
+<h3 id="язык-по-умолчанию">Язык по умолчанию<a class="headerlink" href="#язык-по-умолчанию" title="Permanent link">#</a></h3>
+<p>Мы можем пометить язык, как "Язык по умолчанию". Если не выбрано другого языка, то будет выбран данный язык. Создадим публичное <code>get</code> свойства для получения значения переменной <code>isDefault</code>.</p>
+<div class="codehilite"><pre><span></span><span class="k">public</span> <span class="kt">bool</span> <span class="n">IsDefault</span> <span class="p">=&gt;</span> <span class="n">isDefault</span><span class="p">;</span>
+</pre></div>
+
+<h3 id="информация-о-языке">Информация о языке<a class="headerlink" href="#информация-о-языке" title="Permanent link">#</a></h3>
+<p>Сейчас нет никакой возможности получить информацию о языке изнутри кода. Исправим это путем добавления публичного <code>get</code> свойства, которое возвращает переменную <code>info</code>:</p>
+<div class="codehilite"><pre><span></span><span class="k">public</span> <span class="n">LanguageInfo</span> <span class="n">Info</span> <span class="p">=&gt;</span> <span class="n">info</span><span class="p">;</span>
+</pre></div>
+
+<p>Напомню еще раз, почему мы не можем просто сделать <code>info</code> публичной. Если она будет публичной, какой-нибудь невнимательный программист, который использует ваш пакет, может по ошибке внутри своего <del>говно</del> кода изменить информацию о языке. Это может привести к страшным последствиям. Просто подумайте о том, что произойдет, если у код русского языка (<code>ru</code>) внезапно станет равен <code>en</code>!</p>
+<h3 id="получение-всех-фраз">Получение всех фраз<a class="headerlink" href="#получение-всех-фраз" title="Permanent link">#</a></h3>
+<p>Частно нам будет нужно работать со всем списком фраз одновременно. Создадим публичное <code>get</code> свойство <code>Phrases</code>, возвращающее список фраз в режим только для чтения (<code>IReadOnlyCollection</code>):</p>
+<div class="codehilite"><pre><span></span><span class="k">public</span> <span class="n">IReadOnlyCollection</span><span class="p">&lt;</span><span class="n">Phrase</span><span class="p">&gt;</span> <span class="n">Phrases</span> <span class="p">=&gt;</span> <span class="n">phrases</span><span class="p">.</span><span class="n">AsReadOnly</span><span class="p">();</span>
+</pre></div>
+
+<h3 id="работа-с-фразами">Работа с фразами<a class="headerlink" href="#работа-с-фразами" title="Permanent link">#</a></h3>
+<p>Пора дать другим людям возможность получать текст фразы из языка по ее идентификатору.</p>
+<p>Стоит уточнить, что идентификатор может иметь определенные знаки в конце: <code>.</code>, <code>?</code>, <code>!</code>, <code>:</code>, <code>...</code>. Если хоть один из них присутствует в конце ID, мы добавим его в конце текста фразы. Зачем? Пусть у нас есть нейтральная фраза с ID <code>game_over</code> и текстом <code>Конец игры</code>. Но что если мы хотим получить "Конец игры?" или "Конец игры!". Создавать под каждый вариант свою фразу? Неудобно!</p>
+<p>А вот с проверкой на пунктуацию в конце ID мы можем просто написать: <code>GetPhrase("game_over?")</code> или <code>GetPhrase("game_over!")</code> и получить в конце нужный знак.</p>
+<p>Поэтому, сначала напишем методы, которые отделяют знаки пунктуации от ID:</p>
+<div class="codehilite"><pre><span></span><span class="k">public</span> <span class="kt">string</span><span class="p">[]</span> <span class="nf">SplitId</span><span class="p">(</span><span class="kt">string</span> <span class="n">id</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">var</span> <span class="n">punctuation</span> <span class="p">=</span> <span class="k">new</span> <span class="kt">string</span><span class="p">[]</span>
+    <span class="p">{</span>
+        <span class="s">&quot;...&quot;</span><span class="p">,</span> <span class="s">&quot;.&quot;</span><span class="p">,</span> <span class="s">&quot;:&quot;</span><span class="p">,</span> <span class="s">&quot;;&quot;</span><span class="p">,</span>
+        <span class="s">&quot;!?&quot;</span><span class="p">,</span> <span class="s">&quot;?!&quot;</span><span class="p">,</span> <span class="s">&quot;!&quot;</span><span class="p">,</span> <span class="s">&quot;?&quot;</span>
+    <span class="p">};</span>
+
+    <span class="kt">string</span> <span class="n">ending</span> <span class="p">=</span> <span class="s">&quot;&quot;</span><span class="p">;</span>
+
+    <span class="k">foreach</span> <span class="p">(</span><span class="kt">var</span> <span class="n">item</span> <span class="k">in</span> <span class="n">punctuation</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">id</span><span class="p">.</span><span class="n">EndsWith</span><span class="p">(</span><span class="n">item</span><span class="p">))</span>
+        <span class="p">{</span>
+            <span class="n">ending</span> <span class="p">=</span> <span class="n">item</span><span class="p">;</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="kt">var</span> <span class="n">clearId</span> <span class="p">=</span> <span class="n">ending</span> <span class="p">!=</span> <span class="s">&quot;&quot;</span> <span class="p">?</span> <span class="n">id</span><span class="p">.</span><span class="n">Substring</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="n">id</span><span class="p">.</span><span class="n">LastIndexOf</span><span class="p">(</span><span class="n">ending</span><span class="p">))</span> <span class="p">:</span> <span class="n">id</span><span class="p">;</span>
+
+    <span class="k">return</span> <span class="k">new</span> <span class="kt">string</span><span class="p">[]</span> <span class="p">{</span> <span class="n">clearId</span><span class="p">,</span> <span class="n">ending</span> <span class="p">};</span>
+<span class="p">}</span>
+
+<span class="k">public</span> <span class="kt">string</span> <span class="nf">GetId</span><span class="p">(</span><span class="kt">string</span> <span class="n">id</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">return</span> <span class="nf">SplitId</span><span class="p">(</span><span class="n">id</span><span class="p">)[</span><span class="m">0</span><span class="p">];</span>
+<span class="p">}</span>
+
+<span class="k">public</span> <span class="kt">string</span> <span class="nf">GetEnding</span><span class="p">(</span><span class="kt">string</span> <span class="n">id</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">return</span> <span class="nf">SplitId</span><span class="p">(</span><span class="n">id</span><span class="p">)[</span><span class="m">1</span><span class="p">];</span>
+<span class="p">}</span>
+</pre></div>
+
+<p>Все действие происходит в первом методе (<code>SplitId</code>). В нем мы разделяем ID на "чистый ID" (идентификатор фразы) и "концовку" — знак пунктуации из списка выше. Затем возвращаем и то и другое в виде массива из двух элементов.</p>
+<p>Методы <code>GetId</code> и <code>GetEnding</code> являются сокращениями на случай, если нам нужен только ID или только концовка.</p>
+<p>Теперь пора реализовать метод <code>GetPhrase</code> для получения текста фразы по ее ID и некоторые его вариации!</p>
+<p>Сначала добавим библиотеку <code>System.Linq</code> в наш файл:</p>
+<div class="codehilite"><pre><span></span><span class="k">using</span> <span class="nn">System.Linq</span><span class="p">;</span>
+</pre></div>
+
+<p>Реализуем базовый вариант <code>GetPhrase</code>, который принимает только ID фразы с необязательным параметром <code>strict</code>:</p>
+<div class="codehilite"><pre><span></span><span class="k">public</span> <span class="kt">string</span> <span class="nf">GetPhrase</span><span class="p">(</span><span class="kt">string</span> <span class="n">id</span><span class="p">,</span> <span class="kt">bool</span> <span class="n">strict</span> <span class="p">=</span> <span class="k">false</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">var</span> <span class="n">splitId</span> <span class="p">=</span> <span class="n">SplitId</span><span class="p">(</span><span class="n">id</span><span class="p">);</span>
+
+    <span class="kt">string</span> <span class="n">clearId</span> <span class="p">=</span> <span class="n">splitId</span><span class="p">[</span><span class="m">0</span><span class="p">];</span>
+    <span class="kt">string</span> <span class="n">ending</span> <span class="p">=</span> <span class="n">splitId</span><span class="p">[</span><span class="m">1</span><span class="p">];</span>
+
+    <span class="kt">var</span> <span class="n">matches</span> <span class="p">=</span> <span class="n">phrases</span><span class="p">.</span><span class="n">Where</span><span class="p">(</span><span class="n">phrase</span> <span class="p">=&gt;</span> <span class="n">phrase</span><span class="p">.</span><span class="n">Id</span> <span class="p">==</span> <span class="n">clearId</span><span class="p">);</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">matches</span><span class="p">.</span><span class="n">Count</span><span class="p">()</span> <span class="p">==</span> <span class="m">0</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="n">strict</span> <span class="p">?</span> <span class="k">null</span> <span class="p">:</span> <span class="n">id</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="n">matches</span><span class="p">.</span><span class="n">First</span><span class="p">().</span><span class="n">Text</span> <span class="p">+</span> <span class="n">ending</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+<p>Этот метод состоит из двух частей. В первой мы разбиваем данный ID на "чистый ID" и концовку.</p>
+<p>Во второй части метода мы ищем, есть ли в языке фразы с данным "чистым ID". Если есть, возвращаем текст фразы с приплюсованной концовкой.
+Если нет, то в зависимости от параметра <code>strict</code> мы либо возвращаем ID, либо возвращаем <code>null</code>. Зачем возвращать <code>null</code>? Он нужен для того, чтобы точно понимать, что такой фразы в языке нет.</p>
+<p>Теперь реализуем метод <code>GetPhrase</code>, принимающий параметры. Например, у нас есть вот такой текст фразы: <code>{killer} убил тебя</code>. В этой фразе вместо <code>{killer}</code> должен быть никнейм убийцы. Этот самый ник надо передать в фразу в качестве параметра вместе с ID.</p>
+<div class="codehilite"><pre><span></span><span class="k">public</span> <span class="kt">string</span> <span class="nf">GetPhrase</span><span class="p">(</span><span class="kt">string</span> <span class="n">id</span><span class="p">,</span> <span class="n">Dictionary</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">,</span> <span class="kt">string</span><span class="p">&gt;</span> <span class="n">phraseParams</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">string</span> <span class="n">text</span> <span class="p">=</span> <span class="n">GetPhrase</span><span class="p">(</span><span class="n">id</span><span class="p">,</span> <span class="n">strict</span><span class="p">:</span> <span class="k">true</span><span class="p">);</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">text</span> <span class="p">==</span> <span class="k">null</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="n">id</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">foreach</span> <span class="p">(</span><span class="kt">var</span> <span class="n">param</span> <span class="k">in</span> <span class="n">phraseParams</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">text</span> <span class="p">=</span> <span class="n">text</span><span class="p">.</span><span class="n">Replace</span><span class="p">(</span><span class="s">&quot;{&quot;</span> <span class="p">+</span> <span class="n">param</span><span class="p">.</span><span class="n">Key</span> <span class="p">+</span> <span class="s">&quot;}&quot;</span><span class="p">,</span> <span class="n">param</span><span class="p">.</span><span class="n">Value</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="n">text</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+<p>Тут все просто. Проверяем, если ли вообще такая фраза. Если есть, то получаем ее текст и заменяем все выражения вида <code>{...}</code> на нужные строки. Если фразы нет, возвращаем ID.</p>
+<p>Кстати, как раз тут нам и пригодился параметр <code>strict</code>. С его помощью мы сразу понимаем, что искомой фразы нет и возвращаем ее ID.</p>
+<h3 id="итоговый-код">Итоговый код<a class="headerlink" href="#итоговый-код" title="Permanent link">#</a></h3>
+<p>После всех модификаций, у нас получается следующий класс <code>Language</code>:</p>
+<div class="codehilite"><pre><span></span><span class="k">using</span> <span class="nn">System.Linq</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">System.Collections.Generic</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">UnityEngine</span><span class="p">;</span>
+
+<span class="k">namespace</span> <span class="nn">I18n</span>
+<span class="p">{</span>
+<span class="na">    [CreateAssetMenu(fileName = &quot;New Language&quot;, menuName = &quot;I18n/Language&quot;, order = 0)]</span>
+    <span class="k">public</span> <span class="k">class</span> <span class="nc">Language</span> <span class="p">:</span> <span class="n">ScriptableObject</span> 
+    <span class="p">{</span>
+<span class="na">        [SerializeField]</span>
+        <span class="kt">bool</span> <span class="n">isDefault</span><span class="p">;</span>
+
+<span class="na">        [SerializeField]</span>
+        <span class="n">LanguageInfo</span> <span class="n">info</span><span class="p">;</span>
+
+<span class="na">        [SerializeField]</span>
+        <span class="n">List</span><span class="p">&lt;</span><span class="n">Phrase</span><span class="p">&gt;</span> <span class="n">phrases</span><span class="p">;</span>
+
+        <span class="k">public</span> <span class="kt">bool</span> <span class="n">IsDefault</span> <span class="p">=&gt;</span> <span class="n">isDefault</span><span class="p">;</span>
+
+        <span class="k">public</span> <span class="n">LanguageInfo</span> <span class="n">Info</span> <span class="p">=&gt;</span> <span class="n">info</span><span class="p">;</span>
+
+        <span class="k">public</span> <span class="n">IReadOnlyCollection</span><span class="p">&lt;</span><span class="n">Phrase</span><span class="p">&gt;</span> <span class="n">Phrases</span> <span class="p">=&gt;</span> <span class="n">phrases</span><span class="p">.</span><span class="n">AsReadOnly</span><span class="p">();</span>
+
+        <span class="cp">#region GetPhrase</span>
+
+        <span class="k">public</span> <span class="kt">string</span> <span class="nf">GetPhrase</span><span class="p">(</span><span class="kt">string</span> <span class="n">id</span><span class="p">,</span> <span class="kt">bool</span> <span class="n">strict</span> <span class="p">=</span> <span class="k">false</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="kt">var</span> <span class="n">splitId</span> <span class="p">=</span> <span class="n">SplitId</span><span class="p">(</span><span class="n">id</span><span class="p">);</span>
+
+            <span class="kt">string</span> <span class="n">clearId</span> <span class="p">=</span> <span class="n">splitId</span><span class="p">[</span><span class="m">0</span><span class="p">];</span>
+            <span class="kt">string</span> <span class="n">ending</span> <span class="p">=</span> <span class="n">splitId</span><span class="p">[</span><span class="m">1</span><span class="p">];</span>
+
+            <span class="kt">var</span> <span class="n">matches</span> <span class="p">=</span> <span class="n">phrases</span><span class="p">.</span><span class="n">Where</span><span class="p">(</span><span class="n">phrase</span> <span class="p">=&gt;</span> <span class="n">phrase</span><span class="p">.</span><span class="n">Id</span> <span class="p">==</span> <span class="n">clearId</span><span class="p">);</span>
+
+            <span class="k">if</span> <span class="p">(</span><span class="n">matches</span><span class="p">.</span><span class="n">Count</span><span class="p">()</span> <span class="p">==</span> <span class="m">0</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="k">return</span> <span class="n">strict</span> <span class="p">?</span> <span class="k">null</span> <span class="p">:</span> <span class="n">id</span><span class="p">;</span>
+            <span class="p">}</span>
+
+            <span class="k">return</span> <span class="n">matches</span><span class="p">.</span><span class="n">First</span><span class="p">().</span><span class="n">Text</span> <span class="p">+</span> <span class="n">ending</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="k">public</span> <span class="kt">string</span> <span class="nf">GetPhrase</span><span class="p">(</span><span class="kt">string</span> <span class="n">id</span><span class="p">,</span> <span class="n">Dictionary</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">,</span> <span class="kt">string</span><span class="p">&gt;</span> <span class="n">phraseParams</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="kt">string</span> <span class="n">text</span> <span class="p">=</span> <span class="n">GetPhrase</span><span class="p">(</span><span class="n">id</span><span class="p">,</span> <span class="n">strict</span><span class="p">:</span> <span class="k">true</span><span class="p">);</span>
+
+            <span class="k">if</span> <span class="p">(</span><span class="n">text</span> <span class="p">==</span> <span class="k">null</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="k">return</span> <span class="n">id</span><span class="p">;</span>
+            <span class="p">}</span>
+
+            <span class="k">foreach</span> <span class="p">(</span><span class="kt">var</span> <span class="n">param</span> <span class="k">in</span> <span class="n">phraseParams</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="n">text</span><span class="p">.</span><span class="n">Replace</span><span class="p">(</span><span class="s">&quot;{&quot;</span> <span class="p">+</span> <span class="n">param</span><span class="p">.</span><span class="n">Key</span> <span class="p">+</span> <span class="s">&quot;}&quot;</span><span class="p">,</span> <span class="n">param</span><span class="p">.</span><span class="n">Value</span><span class="p">);</span>
+            <span class="p">}</span>
+
+            <span class="k">return</span> <span class="n">text</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="cp">#endregion</span>
+
+        <span class="k">public</span> <span class="kt">string</span><span class="p">[]</span> <span class="nf">SplitId</span><span class="p">(</span><span class="kt">string</span> <span class="n">id</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="kt">var</span> <span class="n">punctuation</span> <span class="p">=</span> <span class="k">new</span> <span class="kt">string</span><span class="p">[]</span>
+            <span class="p">{</span>
+                <span class="s">&quot;...&quot;</span><span class="p">,</span> <span class="s">&quot;.&quot;</span><span class="p">,</span> <span class="s">&quot;:&quot;</span><span class="p">,</span> <span class="s">&quot;;&quot;</span><span class="p">,</span>
+                <span class="s">&quot;!?&quot;</span><span class="p">,</span> <span class="s">&quot;?!&quot;</span><span class="p">,</span> <span class="s">&quot;!&quot;</span><span class="p">,</span> <span class="s">&quot;?&quot;</span>
+            <span class="p">};</span>
+
+            <span class="kt">string</span> <span class="n">ending</span> <span class="p">=</span> <span class="s">&quot;&quot;</span><span class="p">;</span>
+
+            <span class="k">foreach</span> <span class="p">(</span><span class="kt">var</span> <span class="n">item</span> <span class="k">in</span> <span class="n">punctuation</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">id</span><span class="p">.</span><span class="n">EndsWith</span><span class="p">(</span><span class="n">item</span><span class="p">))</span>
+                <span class="p">{</span>
+                    <span class="n">ending</span> <span class="p">=</span> <span class="n">item</span><span class="p">;</span>
+                    <span class="k">break</span><span class="p">;</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+
+            <span class="kt">var</span> <span class="n">clearId</span> <span class="p">=</span> <span class="n">ending</span> <span class="p">!=</span> <span class="s">&quot;&quot;</span> <span class="p">?</span> <span class="n">id</span><span class="p">.</span><span class="n">Substring</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="n">id</span><span class="p">.</span><span class="n">LastIndexOf</span><span class="p">(</span><span class="n">ending</span><span class="p">))</span> <span class="p">:</span> <span class="n">id</span><span class="p">;</span>
+
+            <span class="k">return</span> <span class="k">new</span> <span class="kt">string</span><span class="p">[]</span> <span class="p">{</span> <span class="n">clearId</span><span class="p">,</span> <span class="n">ending</span> <span class="p">};</span>
+        <span class="p">}</span>
+
+        <span class="k">public</span> <span class="kt">string</span> <span class="nf">GetId</span><span class="p">(</span><span class="kt">string</span> <span class="n">id</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">return</span> <span class="nf">SplitId</span><span class="p">(</span><span class="n">id</span><span class="p">)[</span><span class="m">0</span><span class="p">];</span>
+        <span class="p">}</span>
+
+        <span class="k">public</span> <span class="kt">string</span> <span class="nf">GetEnding</span><span class="p">(</span><span class="kt">string</span> <span class="n">id</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">return</span> <span class="nf">SplitId</span><span class="p">(</span><span class="n">id</span><span class="p">)[</span><span class="m">1</span><span class="p">];</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+                
+                  
+                
+              
+
+    <!-- Contributors -->
+    <div class="contributors" style="display: none;">
+        <h2 id="contributors">Вклад внесли <span class="contributors--count">0</span></h2>
+        <ul class="contributors--list"></ul>
+    </div>
+
+    <script>
+        $(function ()
+        {
+            var editUrl = 'https://github.com/ounity/book/edit/master/docs/examples/localisation/language/index.md';
+            var fpath = editUrl.split('https://github.com/ounity/book/edit/master/').pop();
+
+            var already = [];
+
+            fetch('https://api.github.com/repos/ounity/book/commits?path=' + fpath).then(function (response)
+            {
+                return response.json();
+            }).then(function (commits)
+            {
+                for (var i = 0; i < commits.length; i++)
+                {
+                    var author = commits[i].author;
+
+                    if (already.includes(author.login))
+                    {
+                        continue;
+                    }
+                    else
+                    {
+                        already.push(author.login);
+                    }
+
+                    var url = 'https://github.com/ounity/book/commits/master/' + fpath + '?author=' + author.login;
+
+                    $('.contributors--list').append('<li><a title="' + author.login + '" href="' + url + '" target="_blank"><img src="' + author.avatar_url + '&s=40" /></a></li>');
+                }
+
+                $('.contributors--count').html(already.length);
+
+                if (already.length > 0)
+                {
+                    $('.contributors').show();
+                }
+            });
+        });
+    </script>
+
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+
+<!-- Application footer -->
+<footer class="md-footer">
+
+    <!-- Link to previous and/or next page -->
+    
+    <div class="md-footer-nav">
+        <nav class="md-footer-nav__inner md-grid">
+
+            <!-- Link to previous page -->
+            
+            <a href="../package/" title="Пакет"
+                class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+                <div class="md-flex__cell md-flex__cell--shrink">
+                    <i class="md-icon md-icon--arrow-back
+                    md-footer-nav__button"></i>
+                </div>
+                <div class="md-flex__cell md-flex__cell--stretch
+                  md-footer-nav__title">
+                    <span class="md-flex__ellipsis">
+                        <span class="md-footer-nav__direction">
+                            Назад
+                        </span>
+                        Пакет
+                    </span>
+                </div>
+            </a>
+            
+
+            <!-- Link to next page -->
+            
+            <a href="../language-access/" title="Доступ к языку"
+                class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+                <div class="md-flex__cell md-flex__cell--stretch
+                  md-footer-nav__title">
+                    <span class="md-flex__ellipsis">
+                        <span class="md-footer-nav__direction">
+                            Вперед
+                        </span>
+                        Доступ к языку
+                    </span>
+                </div>
+                <div class="md-flex__cell md-flex__cell--shrink">
+                    <i class="md-icon md-icon--arrow-forward
+                    md-footer-nav__button"></i>
+                </div>
+            </a>
+            
+        </nav>
+    </div>
+    
+</footer>
+
+<!-- Counters -->
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function (m, e, t, r, i, k, a) {
+    m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments) };
+        m[i].l = 1 * new Date(); k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+    })
+        (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+    ym(53540761, "init", {
+        clickmap: true,
+        trackLinks: true,
+        accurateTrackBounce: true
+    });
+</script>
+<noscript>
+    <div><img src="https://mc.yandex.ru/watch/53540761" style="position:absolute; left:-9999px;" alt="" /></div>
+</noscript>
+<!-- /Yandex.Metrika counter -->
+      
+    </div>
+    
+      <script src="../../../assets/javascripts/application.245445c6.js"></script>
+      
+        
+        
+          
+          <script src="../../../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+              
+              
+                <script src="../../../assets/javascripts/lunr/lunr.ru.js"></script>
+              
+            
+          
+            
+          
+          
+            <script src="../../../assets/javascripts/lunr/lunr.multi.js"></script>
+          
+        
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script>
+      
+    
+  </body>
+</html>
